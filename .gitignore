@@ -43,9 +43,3 @@ next-env.d.ts
 # package-lock.json
 package-lock.json
 
-
-echo ".storybook/" >> .gitignore
-echo "storybook.log" >> .gitignore
-echo "src/components/Button.stories.tsx" >> .gitignore
-git add .gitignore
-git commit -m "chore: update .gitignore to exclude unnecessary files"
