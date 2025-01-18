@@ -19,11 +19,6 @@ assignees: ''
 ## Proposed Solution
 <!-- Describe how it could be implemented or resolved -->
 
-## Acceptance Criteria
-- [ ] Code follows project standards and best practices
-- [ ] Solution is responsive and works across major browsers
-- [ ] Necessary tests have been added when applicable
-
 ## Resources
 <!-- Links, mockups, designs, or relevant documentation -->
 - 
