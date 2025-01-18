@@ -1,5 +1,5 @@
-# 🚀 Internal Commit and Branch Guide | Citizen of Arcanis Marketplace  
-This guide is designed for **our team**. The goal is to keep the codebase clear and organized, making collaboration easier and ensuring we can understand changes in the future.  
+# 🚀 Commit and Branch Guide | Citizen of Arcanis Marketplace  
+ The goal is to keep the codebase clear and organized, making collaboration easier and ensuring we can understand changes in the future.  
 
 ---  
 
