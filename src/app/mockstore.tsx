@@ -1,8 +1,8 @@
+'use client';
 import React from 'react';
 import { Star } from 'lucide-react';
 
 interface ItemCardProps {
-  imageUrl: string;
   name: string;
   price: number;
   rarity: string;
@@ -12,7 +12,6 @@ interface ItemCardProps {
 }
 
 const ItemCard = ({
-  imageUrl = '/gamegun.jpg',
   name = 'Game Gun',
   price = 40,
   rarity = 'Rare',
@@ -24,7 +23,7 @@ const ItemCard = ({
     <div className="w-64 bg-gray-800 rounded-lg overflow-hidden shadow-xl">
       <div className="relative">
         <img 
-          src={imageUrl} 
+          src="/api/placeholder/400/320"
           alt={name}
           className="w-full h-48 object-cover"
         />
@@ -90,7 +89,6 @@ const MockStore = () => {
         {items.map((item, index) => (
           <ItemCard
             key={index}
-            imageUrl="/gamegun.jpg"
             name={item.name}
             price={item.price}
             rarity={item.rarity}

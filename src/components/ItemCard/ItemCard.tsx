@@ -1,8 +1,13 @@
+'use client';
+
 import React from 'react';
 import { Star } from 'lucide-react';
+import type { StaticImageData } from 'next/image';
+import Image from 'next/image';
+import gamegun from '../assets/items/gamegun.jpg';
 
 interface ItemCardProps {
-  imageUrl: string;
+  imageUrl?: string | StaticImageData;
   name: string;
   price: number;
   rarity: string;
@@ -12,7 +17,7 @@ interface ItemCardProps {
 }
 
 const ItemCard = ({
-  imageUrl = '/gamegun.jpg',
+  imageUrl = gamegun,
   name = 'Game Gun',
   price = 40,
   rarity = 'Rare',
@@ -23,16 +28,18 @@ const ItemCard = ({
   return (
     <div className="w-64 bg-gray-800 rounded-lg overflow-hidden shadow-xl">
       <div className="relative">
-        <img 
-          src={imageUrl} 
+        <Image 
+          src={imageUrl}
           alt={name}
+          width={256}
+          height={192}
           className="w-full h-48 object-cover"
         />
         <div className="absolute top-2 right-2 px-2 py-1 bg-blue-500 text-white text-sm rounded">
           {rarity}
         </div>
       </div>
-      
+      {/* Rest of the component remains the same */}
       <div className="p-4">
         <div className="flex justify-between items-center mb-2">
           <span className="text-xl text-white font-semibold">${price}</span>
