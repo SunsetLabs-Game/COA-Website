@@ -13,7 +13,7 @@ export default function ProfileMenu() {
     };
 
     return (
-        <div className="relative">
+        <div className="relative bg-white rounded-full">
             {/* Profile Image */}
             <button
                 onClick={toggleMenu}
@@ -23,8 +23,9 @@ export default function ProfileMenu() {
                 <Image
                     src={profileImage}
                     alt="Profile"
-                    width={50}
-                    height={50}
+                    width={60}
+                    height={60}
+                    className='rounded-full'
                 />
             </button>
 
