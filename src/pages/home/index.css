@@ -2,19 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .body-background {
-  background-image: url('/assets/backgroundImage.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.main-content {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 0rem;
 }
 
 .text-container {
@@ -28,44 +20,24 @@
   max-width: 90%;
   width: 100%;
   flex-direction: column;
+  height: 100%;
 }
 
 .logo {
   width: 215px;
   height: 107px;
   object-fit: contain;
-}
-
-header {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  position: relative;
-}
-
-nav {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  margin-left: 0rem;
-  margin-right: 5rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 
 .nav-menu {
   display: flex;
   gap: 1.5rem;
   align-items: center;
+  justify-content: center;
   width: 100%;
-  justify-content: flex-start;
-}
-
-.welcome-image {
-    width: 100%;
-    max-width: 40rem;
-    height: auto;
-    margin-bottom: 4rem;
 }
 
 .profile-image {
@@ -78,48 +50,48 @@ nav {
   border-radius: 50%;
 }
 
+.welcome-image {
+  max-width: 40rem;
+  margin-bottom: 4rem;
+  width: 100%;
+  height: auto;
+}
+
 .buttons-container {
-    display: flex;
-    justify-content: center;
-    gap: 30rem;
-    width: 100%;
-    margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 30rem;
 }
 
 button {
-    background-color: #2C2C2C;
-    color: white;
-    padding: 0.75rem 2rem;
-    border: none;
-    border-radius: 50rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1rem;
-    text-transform: uppercase;
-}
-
-.common-market {
-    color: #0DABFFA6;
-}
-
-.black-market {
-    color: red;
+  background-color: #2C2C2C;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 50rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  text-transform: uppercase;
 }
 
 button:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
- /* for responsive */
-@media (max-width: 1024px) {
-  header {
-    flex-direction: column;
-    padding: 1rem 0;
-  }
 
-  .nav-menu {
-    flex-direction: column;
-    gap: 1rem;
-    margin-right: 0;
+.common-market {
+  color: #0DABFFA6;
+}
+
+.black-market {
+  color: red;
+}
+
+@media (max-width: 1024px) {
+  .logo {
+    width: 180px;
+    height: 90px;
   }
 
   .profile-image {
@@ -143,16 +115,9 @@ button:hover {
 }
 
 @media (max-width: 768px) {
-  .text-container {
-    padding: 1.5rem;
-  }
-
-  .buttons-container {
-    gap: 2rem;
-  }
-
-  .common-market, .black-market {
-    font-size: 1rem;
+  .logo {
+    width: 160px;
+    height: 80px;
   }
 
   .profile-image {
@@ -162,11 +127,6 @@ button:hover {
 
   .welcome-image {
     max-width: 25rem;
-  }
-
-  .logo {
-    width: 180px;
-    height: 90px;
   }
 }
 
@@ -181,10 +141,5 @@ button:hover {
 
   button {
     padding: 1rem 2.5rem;
-  }
-
-  .logo {
-    width: 160px;
-    height: 80px;
   }
 }
