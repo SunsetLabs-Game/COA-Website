@@ -1,4 +1,3 @@
-// src/contexts/MetaMaskContext.tsx
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
@@ -18,11 +17,11 @@ export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
   const [isConnected, setIsConnected] = useState(false);
   const [sdk, setSdk] = useState<MetaMaskSDK | null>(null);
 
-  // Inicializar el SDK
+  // Initialize SDK
   useEffect(() => {
     const initializeSDK = () => {
       const MMSDK = new MetaMaskSDK({
-        injectProvider: true, // Inyecta automáticamente el provider en window.ethereum
+        injectProvider: true, 
         dappMetadata: {
           name: "Citizen of Arcanis Website",
           url: window.location.href,
@@ -35,21 +34,20 @@ export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
     initializeSDK();
   }, []);
 
-  // Verificar conexión al cargar la página
+  // Verifiy connection
   useEffect(() => {
     const checkConnection = async () => {
       const provider = sdk?.getProvider();
       if (provider) {
         try {
-          // Especificar el tipo de respuesta como string[]
           const accounts = await provider.request({ method: "eth_accounts" }) as string[];
           
-          if (accounts && accounts.length > 0) { // Verificar explícitamente
+          if (accounts && accounts.length > 0) {
             setAccount(accounts[0]);
             setIsConnected(true);
           }
         } catch (error) {
-          console.error("Error al verificar conexión:", error);
+          console.error("Error verifying connection:", error);
         }
       }
     };
@@ -57,15 +55,13 @@ export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
     checkConnection();
   }, [sdk]);
 
-  // Escuchar cambios de cuenta
+  // Listen for account changes
   useEffect(() => {
     const provider = sdk?.getProvider();
     if (provider) {
       const handleAccountsChanged = (...args: unknown[]) => {
-        // 1. Extraer el primer argumento (accounts)
-        const accounts = args[0] as string[]; // Cast seguro
+        const accounts = args[0] as string[]; 
         
-        // 2. Verificar si accounts es un array válido
         if (Array.isArray(accounts)) {
           if (accounts.length > 0) {
             setAccount(accounts[0]);
@@ -85,31 +81,30 @@ export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
     }
   }, [sdk]);
 
-  // Conectar a MetaMask
+  // Connect to MetaMask
   const connect = async () => {
     const provider = sdk?.getProvider();
     if (!provider) {
-      alert("MetaMask no está instalado!");
+      alert("MetaMask not installed in your browser");
       return;
     }
   
     try {
-      // Especificar el tipo de respuesta
       const accounts = await provider.request({
         method: "eth_requestAccounts",
       }) as string[];
   
-      if (accounts?.[0]) { // Verificar explícitamente
+      if (accounts?.[0]) {
         setAccount(accounts[0]);
         setIsConnected(true);
       }
     } catch (error) {
-      console.error("Error al conectar:", error);
-      alert("Error al conectar. ¿Rechazaste la solicitud?");
+      console.error("Connection error:", error);
+      alert("Connection error: user rejected connection request");
     }
   };
 
-  // Desconectar
+  // Disconnect from MetaMask
   const disconnect = () => {
     setAccount(null);
     setIsConnected(false);
@@ -124,6 +119,6 @@ export const MetaMaskProvider = ({ children }: { children: ReactNode }) => {
 
 export const useMetaMask = () => {
   const context = useContext(MetaMaskContext);
-  if (!context) throw new Error("useMetaMask debe usarse dentro de MetaMaskProvider");
+  if (!context) throw new Error("useMetaMask must be used within a MetaMaskProvider");
   return context;
 };

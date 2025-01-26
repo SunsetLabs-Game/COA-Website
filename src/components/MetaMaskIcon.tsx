@@ -1,4 +1,3 @@
-// src/components/MetaMaskIcon.tsx
 "use client";
 
 import { Icon } from "@iconify/react";
@@ -7,7 +6,6 @@ import { useMetaMask } from "../context/MetaMaskContext";
 const MetaMaskIcon = () => {
   const { isConnected, account, connect, disconnect } = useMetaMask();
 
-  // Función para truncar la dirección
   const truncateAddress = (address: string) => {
     return `${address.slice(0, 5)}...${address.slice(-3)}`;
   };
