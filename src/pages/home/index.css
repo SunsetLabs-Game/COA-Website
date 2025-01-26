@@ -2,144 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-
+/* Clases reemplazadas con Tailwind */
 .body-background {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  @apply bg-cover bg-center bg-no-repeat;
 }
 
 .text-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 3rem;
-  border-radius: 0.375rem;
-  color: white;
-  max-width: 90%;
-  width: 100%;
-  flex-direction: column;
-  height: 100%;
+  @apply flex justify-center items-center text-center p-12 rounded-md text-white max-w-[90%] w-full flex-col h-full;
 }
 
+/* Manteniendo como CSS personalizado */
 .logo {
-  width: 215px;
-  height: 107px;
-  object-fit: contain;
-  position: absolute;
-  top: 1rem;
-  left: 1rem;
+  @apply w-[215px] h-[107px] object-contain absolute top-4 left-4;
 }
 
+/* Clases reemplazadas con Tailwind */
 .nav-menu {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  @apply flex gap-6 items-center justify-center w-full;
 }
 
+/* Manteniendo como CSS personalizado */
 .profile-image {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border-radius: 50%;
+  @apply absolute top-4 right-4 w-[90px] h-[90px] object-cover rounded-full;
 }
 
+/* Clases reemplazadas con Tailwind */
 .welcome-image {
-  max-width: 40rem;
-  margin-bottom: 4rem;
-  width: 100%;
-  height: auto;
+  @apply max-w-[40rem] mb-16 w-full h-auto;
 }
 
 .buttons-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  gap: 30rem;
+  @apply flex justify-center w-full gap-[30rem];
 }
 
 button {
-  background-color: #2C2C2C;
-  color: white;
-  padding: 0.75rem 2rem;
-  border: none;
-  border-radius: 50rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  text-transform: uppercase;
+  @apply bg-[#2C2C2C] text-white px-8 py-3 rounded-full cursor-pointer transition-all duration-300 ease-out text-base uppercase;
 }
 
 button:hover {
-  opacity: 0.8;
+  @apply hover:opacity-80;
 }
 
 .common-market {
-  color: #0DABFFA6;
+  @apply text-[#0DABFFA6];
 }
 
 .black-market {
-  color: red;
+  @apply text-red-500;
 }
 
+/* Responsiveness reemplazado con Tailwind */
 @media (max-width: 1024px) {
   .logo {
-    width: 180px;
-    height: 90px;
+    @apply lg:w-[180px] lg:h-[90px];
   }
 
   .profile-image {
-    width: 70px;
-    height: 70px;
+    @apply lg:w-[70px] lg:h-[70px];
   }
 
   .welcome-image {
-    max-width: 30rem;
+    @apply lg:max-w-[30rem];
   }
 
   .buttons-container {
-    flex-direction: column;
-    gap: 2rem;
+    @apply lg:flex-col lg:gap-8;
   }
 
   button {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
+    @apply lg:px-6 lg:py-3 lg:text-sm;
   }
 }
 
 @media (max-width: 768px) {
   .logo {
-    width: 160px;
-    height: 80px;
+    @apply md:w-[160px] md:h-[80px];
   }
 
   .profile-image {
-    width: 60px;
-    height: 60px;
+    @apply md:w-[60px] md:h-[60px];
   }
 
   .welcome-image {
-    max-width: 25rem;
+    @apply md:max-w-[25rem];
   }
 }
 
 @media (max-width: 480px) {
   .welcome-image {
-    max-width: 20rem;
+    @apply sm:max-w-[20rem];
   }
 
   .buttons-container {
-    gap: 1.5rem;
+    @apply sm:gap-6;
   }
 
   button {
-    padding: 1rem 2.5rem;
+    @apply sm:px-10 sm:py-4;
   }
 }
