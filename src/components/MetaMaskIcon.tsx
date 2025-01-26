@@ -1,30 +1,44 @@
 // src/components/MetaMaskIcon.tsx
-"use client"; // Indica que este es un Client Component
+"use client";
 
-import React from "react";
 import { Icon } from "@iconify/react";
+import { useMetaMask } from "../context/MetaMaskContext";
 
 const MetaMaskIcon = () => {
-  const handleClick = () => {
-    console.log("MetaMask icon clicked!");
-    // Aquí puedes agregar la lógica de conexión a MetaMask más adelante
-  };
+  const { isConnected, account, connect, disconnect } = useMetaMask();
 
   return (
     <div
-      onClick={handleClick}
+      onClick={isConnected ? disconnect : connect}
       style={{
-        cursor: "pointer", // Cambia el cursor a una mano para indicar que es clickeable
-        display: "inline-block", // Asegura que el ícono no ocupe toda la línea
+        cursor: "pointer",
+        display: "inline-block",
+        position: "relative",
       }}
     >
       <Icon
-        icon="logos:metamask-icon" // Ícono de MetaMask de Iconify
+        icon="logos:metamask-icon"
         style={{
-          fontSize: "48px", // Tamaño del ícono
-          color: "#f6851b", // Color naranja de MetaMask (opcional)
+          fontSize: "48px",
+          color: "#f6851b",
         }}
       />
+      {account && (
+        <div
+          style={{
+            position: "absolute",
+            top: "-8px",
+            right: "-8px",
+            background: "green",
+            color: "white",
+            borderRadius: "50%",
+            padding: "4px 8px",
+            fontSize: "12px",
+          }}
+        >
+          ✔️
+        </div>
+      )}
     </div>
   );
 };
