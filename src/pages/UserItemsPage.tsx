@@ -49,10 +49,10 @@ export default function UserItemsPage() {
 
   return (
     <div className="min-h-screen bg-[url('/images/BACKGROUND_CITIZEN_OF_ARCANIS.jpg')] bg-cover bg-center">
-      <div className="bg-black bg-opacity-50 min-h-screen">
-        <div className="flex flex-col sm:flex-row justify-between py-1 px-6 items-center bg-[#203040]">
+      <div className="bg-black bg-opacity-20 min-h-screen">
+        <div className="flex flex-col sm:flex-row justify-between py-1 px-6 items-center bg-[#203040]/70 backdrop-blur-md sticky top-0 z-10">
           <h1 className="font-bold text-3xl text-white mb-2 sm:mb-0">Logo</h1>
-          <NavMenu items={navItems} />
+          <NavMenu items={navItems} bg_color="transparent" />
         </div>
         <main className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold text-center mb-8 text-white">My Magical Items</h1>
