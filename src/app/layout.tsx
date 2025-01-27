@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarknetProvider from "@/context/starknet-provider";
+import { MetaMaskProvider } from "../context/MetaMaskContext"; 
 import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
@@ -25,15 +26,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <StarknetProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          {children}
-          <Toaster />
-        </body>
-      </html>
-    </StarknetProvider>
+    <html lang="en">
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <StarknetProvider>
+          <MetaMaskProvider>
+            {children}
+            <Toaster />
+          </MetaMaskProvider>
+        </StarknetProvider>
+      </body>
+    </html>
   );
 }
