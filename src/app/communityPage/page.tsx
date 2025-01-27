@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import NavMenu from "@/components/NavMenu";
 import SearchBar from "@/components/SearchBar";
 import { Card } from "@/components/ui/card";
-import Avatar from "@/components/ui/avatar";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Pagination } from "@/components/ui/pagination";
 
 interface Comment {
@@ -125,7 +125,16 @@ export default function CommunityPage() {
           <div className="space-y-4">
             {currentComments.map((comment) => (
               <Card key={comment.id} className="p-4 flex items-start gap-4">
-                <Avatar className="w-12 h-12" src={comment.avatar} />
+                <Avatar className="w-12 h-12">
+                  <AvatarImage
+                    src={comment.avatar}
+                    alt={`${comment.username}'s avatar`}
+                    className="w-full h-full object-cover"
+                  />
+                  <AvatarFallback delayMs={600}>
+                    {comment.username[0]}
+                  </AvatarFallback>
+                </Avatar>
                 <div>
                   <h3 className="text-sm font-bold text-[#002333]">
                     {comment.username}
@@ -149,7 +158,7 @@ export default function CommunityPage() {
           className="mt-8"
           currentPage={currentPage}
           totalPages={Math.ceil(filteredComments.length / commentsPerPage)}
-          onPageChange={(page) => setCurrentPage(page)}
+          onPageChange={(page: number) => setCurrentPage(page)}
         />
       </main>
     </div>

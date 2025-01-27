@@ -4,28 +4,49 @@ import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ButtonProps, buttonVariants } from "@/components/ui/button"
 
-interface PaginationProps {
-  className?: string;
-  currentPage: number;
-  totalPages: number;
-  onPageChange: (page: number) => void;
-}
+type PaginationProps = {
+  currentPage: number
+  totalPages: number
+  onPageChange: (page: number) => void
+} & React.ComponentProps<"nav">
 
-const Pagination: React.FC<PaginationProps> = ({ className, currentPage, totalPages, onPageChange }) => {
-  // Implement pagination logic here
-  return (
-    <div className={className}>
-      {/* Render pagination controls */}
-      <button onClick={() => onPageChange(currentPage - 1)} disabled={currentPage === 1}>
-        Previous
-      </button>
-      <span>{currentPage} of {totalPages}</span>
-      <button onClick={() => onPageChange(currentPage + 1)} disabled={currentPage === totalPages}>
-        Next
-      </button>
-    </div>
-  );
-};
+const Pagination = ({
+  className,
+  currentPage,
+  totalPages,
+  onPageChange,
+  ...props
+}: PaginationProps) => (
+  <nav
+    role="navigation"
+    aria-label="pagination"
+    className={cn("mx-auto flex w-full justify-center", className)}
+    {...props}
+  >
+    <PaginationPrevious
+      onClick={() => currentPage > 1 && onPageChange(currentPage - 1)}
+      className={currentPage === 1 ? "cursor-not-allowed opacity-50" : ""}
+    />
+    <PaginationContent>
+      {/* Render page numbers or ellipsis here */}
+      {Array.from({ length: totalPages }, (_, i) => (
+        <PaginationItem key={i}>
+          <PaginationLink
+            isActive={i + 1 === currentPage}
+            onClick={() => onPageChange(i + 1)}
+          >
+            {i + 1}
+          </PaginationLink>
+        </PaginationItem>
+      ))}
+    </PaginationContent>
+    <PaginationNext
+      onClick={() => currentPage < totalPages && onPageChange(currentPage + 1)}
+      className={currentPage === totalPages ? "cursor-not-allowed opacity-50" : ""}
+    />
+  </nav>
+)
+Pagination.displayName = "Pagination"
 
 const PaginationContent = React.forwardRef<
   HTMLUListElement,
