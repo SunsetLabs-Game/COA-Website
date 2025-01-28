@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 interface SearchBarProps {
   value: string;
@@ -17,14 +17,22 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSearch }) => {
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
-      handleSearch();
+      handleSearch()
     }
-  };
+  }
+
+  useEffect(() => {
+    const debounceTimer = setTimeout(() => {
+      onSearch(value)
+    }, 300)
+
+    return () => clearTimeout(debounceTimer)
+  }, [value, onSearch])
 
   return (
     <div
       className="flex items-center gap-2 p-1 rounded-full w-full max-w-[500px] h-12"
-      style={{ backgroundColor: "#3986AFA6" }} 
+      style={{ backgroundColor: "#3986AFA6" }}
     >
       <input
         type="text"
@@ -38,13 +46,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSearch }) => {
       <button
         onClick={handleSearch}
         className="flex items-center justify-center w-10 h-10 text-white rounded-full hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-blue-200"
-        style={{ backgroundColor: "#3986AFA6" }} 
+        style={{ backgroundColor: "#3986AFA6" }}
         aria-label="Search button"
       >
         <span className="text-sm">🔍</span>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default SearchBar;
+export default SearchBar
+

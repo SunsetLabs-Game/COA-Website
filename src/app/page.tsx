@@ -1,7 +1,7 @@
 // src/app/page.tsx
 import Image from "next/image";
 import MetaMaskIcon from "../components/MetaMaskIcon";
-// import StorePage from './mockstore';
+import StorePage from './mockstore';
 
 export default function Home() {
 
