@@ -6,13 +6,14 @@ interface NavMenuItem {
 }
 
 interface NavMenuProps {
+  bg_color?: string;
   items: NavMenuItem[];
 }
 
-const NavMenu = ({ items }: NavMenuProps) => {
+const NavMenu = ({ bg_color = "bg-[#203040]", items }: NavMenuProps) => {
   return (
     <nav className="flex justify-center py-4">
-      <div className="bg-[#203040] rounded-full px-6">
+      <div className={`${bg_color} rounded-full px-6`}>
         <div className="flex items-center h-8 space-x-8">
           {items.map((item) => (
             <a
