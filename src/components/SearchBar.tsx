@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 interface SearchBarProps {
   value: string;
@@ -23,11 +23,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSearch }) => {
 
   useEffect(() => {
     const debounceTimer = setTimeout(() => {
-      onSearch(query)
+      onSearch(value)
     }, 300)
 
     return () => clearTimeout(debounceTimer)
-  }, [query, onSearch])
+  }, [value, onSearch])
 
   return (
     <div

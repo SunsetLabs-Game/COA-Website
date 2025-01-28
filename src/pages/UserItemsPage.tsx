@@ -57,7 +57,7 @@ export default function UserItemsPage() {
         <main className="container mx-auto px-4 py-8">
           <h1 className="text-4xl font-bold text-center mb-8 text-white">My Magical Items</h1>
           <div className="flex justify-center mb-8">
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} onSearch={handleSearch} />
           </div>
           <div className="flex flex-col lg:flex-row gap-8">
             <aside className="w-full lg:w-1/4">
