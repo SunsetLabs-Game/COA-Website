@@ -16,12 +16,12 @@ const HomePage = () => {
 
   const [activeItem, setActiveItem] = useState(0);  // To track the active item
   const navItems = [
-    { label: "Home", bgColor: "bg-blue-500", border: "border-blue-600", activeColor: "text-white", value: "home" },
-    { label: "About", bgColor: "bg-green-500", border: "border-green-600", activeColor: "text-white", value: "about" },
-    { label: "Services", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
-    { label: "Contact", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
-    { label: "Services", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
-    { label: "Contact", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
+    { label: "Collected", bgColor: "bg-blue-500", border: "border-blue-600", activeColor: "text-white", value: "home" },
+    { label: "Created", bgColor: "bg-green-500", border: "border-green-600", activeColor: "text-white", value: "about" },
+    { label: "Favourites", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
+    { label: "Activity", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
+    { label: "Watchlist", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
+    { label: "Transaction", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
   ];
 
   const handleClick = (index: any) => {
