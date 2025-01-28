@@ -14,7 +14,7 @@ const HomePage = () => {
     { src: '/images/discord.svg', alt: 'Icon 3' },
   ];
 
-  const [activeItem, setActiveItem] = useState(0);  // To track the active item
+  const [activeItem, setActiveItem] = useState(0);  
   const navItems = [
     { label: "Collected", bgColor: "bg-blue-500", border: "border-blue-600", activeColor: "text-white", value: "home" },
     { label: "Created", bgColor: "bg-green-500", border: "border-green-600", activeColor: "text-white", value: "about" },
@@ -24,8 +24,8 @@ const HomePage = () => {
     { label: "Transaction", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
   ];
 
-  const handleClick = (index: any) => {
-    setActiveItem(index);  // Set the clicked item as active
+  const handleClick = (index: number) => {
+    setActiveItem(index); 
   };
 
   return (
@@ -33,7 +33,7 @@ const HomePage = () => {
     <Header/>
       <div className="relative ">
         {/* Background Image */}
-        <img
+        <Image
           src="/images/face.png"
           alt="Top image"
           className="w-full h-full object-cover"
@@ -144,22 +144,18 @@ const HomePage = () => {
                 </>
               ) : activeItem === 1 ? (
                 <>
-                  {/* Render About Component */}
                   <div className="text-white mt-6">About section content goes here!</div>
                 </>
               ) : activeItem === 2 ? (
                 <>
-                  {/* Render Services Component */}
                   <div className="text-white mt-6">Services section content goes here!</div>
                 </>
               ) : activeItem === 3 ? (
                 <>
-                  {/* Render Contact Component */}
                   <div className="text-white mt-6">Contact section content goes here!</div>
                 </>
               ) : activeItem === 4 ? (
                 <>
-                  {/* Render Contact Component */}
                   <div className="text-white mt-6">Contact section content goes here!</div>
                 </>
               ) : (
