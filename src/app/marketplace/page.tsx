@@ -59,10 +59,10 @@ export default function Marketplace() {
         <Logo />
         <NavMenu
           items={[
-            { label: "TREND ITEMS", href: "" },
-            { label: "BUY", href: "" },
-            { label: "SELL", href: "" },
-            { label: "AUCTION", href: "" },
+            { label: "TREND ITEMS", href: "/trend-items" },
+            { label: "BUY", href: "/buy" },
+            { label: "SELL", href: "/sell" },
+            { label: "AUCTION", href: "/auction" },
           ]}
         />
         <ProfileMenu />
