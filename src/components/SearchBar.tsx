@@ -1,23 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 
 interface SearchBarProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onSearch: (query: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
-  const [query, setQuery] = useState("");
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuery(e.target.value);
-  };
-
+const SearchBar: React.FC<SearchBarProps> = ({ value, onChange, onSearch }) => {
   const handleSearch = () => {
-    if (query.trim() === "") {
+    if (value.trim() === "") {
       alert("Please enter a search query.");
       return;
     }
-    onSearch(query);
-    setQuery("");
+    onSearch(value);
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -34,8 +29,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
       <input
         type="text"
         placeholder="Search"
-        value={query}
-        onChange={handleInputChange}
+        value={value}
+        onChange={onChange}
         onKeyDown={handleKeyDown}
         className="flex-1 bg-transparent text-white placeholder-white outline-none px-4 rounded-full"
         aria-label="Search input"
