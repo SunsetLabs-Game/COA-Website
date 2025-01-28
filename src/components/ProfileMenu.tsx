@@ -8,7 +8,21 @@ import profileIcon from '@/assets/icons/profileIcon.svg';
 import settingsIcon from '@/assets/icons/settingsIcon.svg';
 import helpIcon from '@/assets/icons/helpIcon.svg';
 
-export default function ProfileMenu({
+interface MenuItem {
+    label: string;
+    href: string;
+    icon: string;
+}
+
+interface ProfileMenuProps {
+    profileImage?: string;
+    menuItems?: MenuItem[];
+    bgColor?: string;
+    hoverColor?: string;
+    textColor?: string;
+}
+
+const ProfileMenu: React.FC<ProfileMenuProps> = ({
     profileImage = defaultProfileImage,
     menuItems = [
         { label: 'My Profile', href: '#my-profile', icon: profileIcon },
@@ -18,7 +32,7 @@ export default function ProfileMenu({
     bgColor = 'bg-[#e5e8e8]',
     hoverColor = 'hover:bg-[#d5d8d8]',
     textColor = 'text-black',
-}) {
+}) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -45,11 +59,10 @@ export default function ProfileMenu({
 
                 {/* Dropdown Menu */}
                 <div
-                    className={`absolute right-0 mt-2 w-48 ${bgColor} border border-gray-200 rounded-md shadow-lg z-10 overflow-hidden transition-all duration-300 ease-out transform ${
-                        isMenuOpen
-                            ? 'max-h-[300px] opacity-100 scale-100 translate-y-0'
-                            : 'max-h-0 opacity-0 scale-95 -translate-y-4 pointer-events-none'
-                    }`}
+                    className={`absolute right-0 mt-2 w-48 ${bgColor} border border-gray-200 rounded-md shadow-lg z-10 overflow-hidden transition-all duration-300 ease-out transform ${isMenuOpen
+                        ? 'max-h-[300px] opacity-100 scale-100 translate-y-0'
+                        : 'max-h-0 opacity-0 scale-95 -translate-y-4 pointer-events-none'
+                        }`}
                     role="menu"
                 >
                     <ul className="flex flex-col divide-y divide-gray-300">
@@ -78,4 +91,6 @@ export default function ProfileMenu({
             </div>
         </div>
     );
-}
+};
+
+export default ProfileMenu;
