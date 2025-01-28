@@ -1,8 +1,21 @@
+// src/app/page.tsx
 import Image from "next/image";
+import MetaMaskIcon from "../components/MetaMaskIcon";
+<<<<<<< HEAD
+=======
+import StorePage from './mockstore';
+>>>>>>> e09616e4956475e11188bfe1bd43bb0abf6e3b18
 
 export default function Home() {
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+<<<<<<< HEAD
+      {/* Button to connect metamask 
+      <div className="absolute top-8 right-8">
+        <MetaMaskIcon />
+      </div>*/}
+
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image
           className="dark:invert"
@@ -49,6 +62,18 @@ export default function Home() {
           </a>
         </div>
       </main>
+=======
+      {/* MetaMask connection button */}
+      <div className="absolute top-8 right-8">
+        <MetaMaskIcon />
+      </div>
+
+      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+        {/* Store content */}
+        <StorePage />
+      </main>
+
+>>>>>>> e09616e4956475e11188bfe1bd43bb0abf6e3b18
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
