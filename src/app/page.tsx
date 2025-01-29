@@ -14,7 +14,7 @@ export default function Home() {
 
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         {/* Store content */}
-        <StorePage />
+        {/* <StorePage /> */}
       </main>
 
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">

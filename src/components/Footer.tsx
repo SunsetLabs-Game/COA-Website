@@ -1,4 +1,6 @@
 import React from "react";
+import Image from "next/image";
+
 
 const Footer: React.FC = () => {
   return (
@@ -48,7 +50,7 @@ const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-gray-400 transition-colors"
           >
-            <img
+            <Image
               src="/icons/telegrama.png" 
               alt="Telegram"
               width={24}
@@ -64,12 +66,11 @@ const Footer: React.FC = () => {
             rel="noopener noreferrer"
             className="flex items-center gap-2 hover:text-gray-400 transition-colors"
           >
-            <img
-              src="/icons/logotypes.png" 
+            <Image
+              src="/icons/logotypes.png"
               width={24}
               height={24}
-              style={{ display: "block", maxWidth: "100%", height: "auto" }}
-            />
+              style={{ display: "block", maxWidth: "100%", height: "auto" }} alt={""}            />
             <span className="text-sm">Twitter</span>
           </a>
         </div>

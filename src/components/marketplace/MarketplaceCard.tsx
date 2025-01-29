@@ -4,6 +4,7 @@ import { Star } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 interface MarketplaceCardProps {
   imageUrl: string;
@@ -27,7 +28,7 @@ export function MarketplaceCard({
       <CardContent className="p-0">
         <div className="relative aspect-square">
           <div className="absolute inset-0 bg-blue-500/10 rounded-t-lg" />
-          <img
+          <Image
             src={imageUrl}
             alt="Item"
             className="w-full h-full object-cover rounded-t-lg"

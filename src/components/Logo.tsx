@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Image from 'next/image';
 interface LogoProps {
   width?: number;
   height?: number;
@@ -7,7 +7,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ width = 150, height = 50 }) => {
   return (
-    <img
+    <Image
       src="/assets/Icones/BLANCO_PNG.png"  
       alt="Marketplace Logo"
       width={width}

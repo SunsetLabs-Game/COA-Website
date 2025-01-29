@@ -2,6 +2,7 @@ import React from "react";
 import NavMenu from "@/components/NavMenu";
 import Footer from "@/components/Footer";
 import "./index.css";
+import Image from "next/image";
 
 export default function Home() {
   const navItems = [
@@ -19,7 +20,7 @@ export default function Home() {
     >
 <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
 
-  <img
+  <Image
     src="/icons/citizen.png"
     alt="Logo"
     className="w-[300px] h-[150px] object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
@@ -29,7 +30,7 @@ export default function Home() {
     <NavMenu items={navItems} />
   </nav>
   
-  <img
+  <Image
     src="/icons/myProfile.png"
     alt="Profile"
     className="hidden sm:block absolute top-6 right-6 w-[120px] h-[120px] object-cover rounded-full md:w-[80px] md:h-[80px]"
@@ -43,7 +44,7 @@ export default function Home() {
         <div
           className="flex justify-center items-center text-center p-6 rounded-md text-white max-w-[90%] w-full flex-col h-full"
         >
-          <img
+          <Image
             src="/assets/Welcome.png"
             alt="Welcome"
             className="max-w-[40rem] mb-16 w-full h-auto md:max-w-[25rem]"
