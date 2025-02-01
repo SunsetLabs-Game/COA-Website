@@ -1,12 +1,12 @@
 "use client";
 import { useState } from "react";
-import { SearchBar } from "@/components/marketplace/SearchBar";
-import { SortingButtons } from "@/components/marketplace/SortingButtons";
-import { FilterSection } from "@/components/marketplace/FilterSection";
-import { ItemGrid } from "@/components/marketplace/ItemGrid";
-import NavMenu from "@/components/NavMenu";
-import Logo from "@/components/Logo";
-import ProfileMenu from "@/components/ProfileMenu";
+import { SearchBar } from "@/components/marketplace/search-bar";
+import { SortingButtons } from "@/components/marketplace/sorting-buttons";
+import { FilterSection } from "@/components/marketplace/filter-section";
+import { ItemGrid } from "@/components/marketplace/item-grid";
+import NavMenu from "@/components/layaout/nav-menu";
+import Logo from "@/components/logo";
+import ProfileMenu from "@/components/layaout/profile-menu";
 
 export default function Marketplace() {
   const mockItems = Array.from({ length: 15 }, (_, i) => ({

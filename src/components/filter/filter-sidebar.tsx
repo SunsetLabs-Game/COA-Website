@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { BsFilter } from "react-icons/bs";
-import { FilterBadge } from "./FilterBadge";
-import { FilterSection } from "./FilterSection";
-import { PriceRangeSlider } from "./PriceRangeSlider";
+import { FilterBadge } from "./filter-badge";
+import { FilterSection } from "./filter-section";
+import { PriceRangeSlider } from "./price-range-slider";
 
 interface FiltersSidebarProps {
   categories?: string[];

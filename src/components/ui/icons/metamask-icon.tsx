@@ -1,7 +1,7 @@
 "use client";
 
 import { Icon } from "@iconify/react";
-import { useMetaMask } from "../context/MetaMaskContext";
+import { useMetaMask } from "../../../context/metamask";
 
 const MetaMaskIcon = () => {
   const { isConnected, account, connect, disconnect } = useMetaMask();

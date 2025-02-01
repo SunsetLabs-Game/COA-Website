@@ -1,10 +1,10 @@
 "use client"
 
 import { useState } from "react"
-import { SearchBar } from "@/components/marketplace/SearchBar"
-import { SortingButtons } from "@/components/marketplace/SortingButtons"
-import { FilterSection } from "@/components/marketplace/FilterSection"
-import { ItemGrid } from "@/components/marketplace/ItemGrid"
+import { SearchBar } from "@/components/marketplace/search-bar"
+import { SortingButtons } from "@/components/marketplace/sorting-buttons"
+import { FilterSection } from "@/components/marketplace/filter-section"
+import { ItemGrid } from "@/components/marketplace/item-grid"
 
 // Mock data - replace with actual data fetching
 const mockItems = Array.from({ length: 15 }, (_, i) => ({

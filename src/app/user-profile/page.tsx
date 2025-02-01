@@ -2,8 +2,8 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Guns from "@/components/Guns";
-import Header from "@/components/Header";
+import Guns from "@/components/guns";
+import Header from "@/components/layaout/header";
 
 const HomePage = () => {
 
