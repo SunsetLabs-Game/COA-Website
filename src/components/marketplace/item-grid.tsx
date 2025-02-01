@@ -1,6 +1,6 @@
 "use client"
 
-import { MarketplaceCard } from "./MarketplaceCard"
+import { MarketplaceCard } from "./marketplace-card"
 
 interface Item {
   id: string;

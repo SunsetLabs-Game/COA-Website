@@ -1,4 +1,4 @@
-import ExpandableFAQ from "@/components/ExpandableFAQ";
+import ExpandableFAQ from "@/components/ui/faq/expandable-faq";
 
 export default function FAQSection() {
   return (

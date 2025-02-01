@@ -1,8 +1,8 @@
 "use client"
 import React, { useState, useMemo } from "react"
-import NavMenu from "@/components/NavMenu"
-import SearchBar from "@/components/SearchBar"
-import { MyItemCard } from "@/components/MyItemCard"
+import NavMenu from "@/components/layaout/nav-menu"
+import SearchBar from "@/components/common/search-bar"
+import { MyItemCard } from "@/components/my-intem-card"
 import { FilterIcon, SortAscIcon } from "lucide-react"
 
 const navItems = [

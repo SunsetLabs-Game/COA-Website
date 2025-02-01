@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState } from "react";
-import NavMenu from "@/components/NavMenu";
-import SearchBar from "@/components/SearchBar";
-import { Card } from "@/components/ui/card";
+import NavMenu from "@/components/layaout/nav-menu";
+import SearchBar from "@/components/common/search-bar";
+import { Card } from "@/components/cards/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Pagination } from "@/components/ui/pagination";
+import { Pagination } from "@/components/common/pagination";
 
 interface Comment {
   id: number;

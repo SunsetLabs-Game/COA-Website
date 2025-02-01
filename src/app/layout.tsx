@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import StarknetProvider from "@/context/starknet-provider";
-import { MetaMaskProvider } from "../context/MetaMaskContext"; 
+import { MetaMaskProvider } from "../context/metamask"; 
 import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
