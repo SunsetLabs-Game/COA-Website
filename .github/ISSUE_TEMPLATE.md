@@ -1,12 +1,3 @@
----
-name: Frontend Issue
-about: General template for frontend issues
-title: '[Frontend] '
-labels: frontend
-assignees: ''
-
----
-
 ## Description
 <!-- Clearly describe the issue objective -->
 
