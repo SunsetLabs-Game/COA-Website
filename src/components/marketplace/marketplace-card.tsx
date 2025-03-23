@@ -31,6 +31,8 @@ export function MarketplaceCard({
           <Image
             src={imageUrl}
             alt="Item"
+            width={500}
+            height={500}
             className="w-full h-full object-cover rounded-t-lg"
           />
         </div>

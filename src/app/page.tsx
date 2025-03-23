@@ -23,6 +23,8 @@ export default function Home() {
   <Image
     src="/icons/citizen.png"
     alt="Logo"
+    width={300}
+    height={150}
     className="w-[300px] h-[150px] object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
   />
 
@@ -33,6 +35,8 @@ export default function Home() {
   <Image
     src="/icons/myProfile.png"
     alt="Profile"
+    width={120}
+    height={120}
     className="hidden sm:block absolute top-6 right-6 w-[120px] h-[120px] object-cover rounded-full md:w-[80px] md:h-[80px]"
   />
 </header>
@@ -44,13 +48,15 @@ export default function Home() {
           <Image
             src="/assets/Welcome.png"
             alt="Welcome"
+            width={640}
+            height={320}
             className="max-w-[40rem] mb-16 w-full h-auto md:max-w-[25rem]"
           />
           <div className="flex flex-col gap-6 w-full md:flex-row md:justify-center md:gap-[30rem]">
-            <button className="bg-[#2C2C2C] text-[#0DABFF] px-8 py-3 rounded-full cursor-pointer transition-all duration-300 ease-out text-base uppercase hover:opacity-80 w-full md:w-auto">
+            <button type="button" className="bg-[#2C2C2C] text-[#0DABFF] px-8 py-3 rounded-full cursor-pointer transition-all duration-300 ease-out text-base uppercase hover:opacity-80 w-full md:w-auto">
               COMMON MARKET
             </button>
-            <button className="bg-[#2C2C2C] text-red-500 px-8 py-3 rounded-full cursor-pointer transition-all duration-300 ease-out text-base uppercase hover:opacity-80 w-full md:w-auto">
+            <button type="button" className="bg-[#2C2C2C] text-red-500 px-8 py-3 rounded-full cursor-pointer transition-all duration-300 ease-out text-base uppercase hover:opacity-80 w-full md:w-auto">
               BLACK MARKET
             </button>
           </div>
