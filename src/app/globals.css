@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer base {
   :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 14, 26, 43;
+    --background-end-rgb: 12, 22, 36;
+
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -34,6 +34,7 @@ body {
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -60,13 +61,63 @@ body {
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(to bottom, rgb(var(--background-start-rgb)), rgb(var(--background-end-rgb)));
+    cursor: none;
   }
+}
+
+.glitch-border {
+  animation: glitch 2s infinite alternate;
+}
+
+@keyframes glitch {
+  0%,
+  100% {
+    opacity: 0.8;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  }
+  20% {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.7);
+    transform: translateX(-1px);
+  }
+  40% {
+    opacity: 0.9;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+    transform: translateX(1px);
+  }
+  60% {
+    opacity: 1;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.6);
+    transform: translateY(-1px);
+  }
+  80% {
+    opacity: 0.9;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+    transform: translateY(1px);
+  }
+}
+
+a,
+button,
+[role="button"],
+input,
+select,
+textarea {
+  cursor: none !important;
+}
+
+a:hover,
+button:hover,
+[role="button"]:hover {
+  cursor: none !important;
 }

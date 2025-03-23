@@ -1,7 +1,6 @@
 import React from "react";
 import NavMenu from "@/components/layaout/nav-menu";
 import Footer from "@/components/layaout/footer";
-//import "./index.css";
 import Image from "next/image";
 
 export default function Home() {
@@ -10,7 +9,7 @@ export default function Home() {
     { label: "COMMUNITY", href: "/community" },
     { label: "HELP", href: "/features" },
     { label: "MY ITEMS", href: "/contact" },
-    { label: "ACCOUNT", href: "/contact" },
+    { label: "ACCOUNT", href: "/account" }, 
   ];
 
   return (
@@ -18,7 +17,7 @@ export default function Home() {
       className="min-h-screen flex flex-col bg-cover bg-center bg-no-repeat w-full"
       style={{ backgroundImage: "url('/assets/backgroundImage.png')" }}
     >
-<header className="w-full flex justify-between items-center p-6 relative h-[200px]">
+      <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
 
   <Image
     src="/icons/citizen.png"
@@ -42,9 +41,7 @@ export default function Home() {
 </header>
 
       <main className="flex-1 flex flex-col items-center justify-center w-full">
-        <div
-          className="flex justify-center items-center text-center p-6 rounded-md text-white max-w-[90%] w-full flex-col h-full"
-        >
+        <div className="flex justify-center items-center text-center p-6 rounded-md text-white max-w-[90%] w-full flex-col h-full">
           <Image
             src="/assets/Welcome.png"
             alt="Welcome"

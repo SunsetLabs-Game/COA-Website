@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Calendar, MessageSquare, Eye, ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/button"
 import Link from "next/link"
 import Image from "next/image"
 
