@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Home() {
   const navItems = [
     { label: "CITIZEN of ARCANIS", href: "/" },
-    { label: "COMMUNITY", href: "/about" },
+    { label: "COMMUNITY", href: "/community" },
     { label: "HELP", href: "/features" },
     { label: "MY ITEMS", href: "/contact" },
     { label: "ACCOUNT", href: "/contact" },
