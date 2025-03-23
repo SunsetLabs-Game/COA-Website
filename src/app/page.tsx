@@ -2,6 +2,8 @@ import React from "react";
 import NavMenu from "@/components/layaout/nav-menu";
 import Footer from "@/components/layaout/footer";
 import Image from "next/image";
+import MarketplaceSection from "@/components/home/marketplace-section";
+import CommunitySection from "@/components/home/community-section";
 
 export default function Home() {
   const navItems = [
@@ -9,7 +11,7 @@ export default function Home() {
     { label: "COMMUNITY", href: "/about" },
     { label: "HELP", href: "/features" },
     { label: "MY ITEMS", href: "/contact" },
-    { label: "ACCOUNT", href: "/account" }, 
+    { label: "ACCOUNT", href: "/account" },
   ];
 
   return (
@@ -57,6 +59,8 @@ export default function Home() {
               BLACK MARKET
             </button>
           </div>
+          <MarketplaceSection />
+          <CommunitySection />
         </div>
       </main>
 
