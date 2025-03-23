@@ -9,7 +9,7 @@ export default function Home() {
     { label: "COMMUNITY", href: "/about" },
     { label: "HELP", href: "/features" },
     { label: "MY ITEMS", href: "/contact" },
-    { label: "ACCOUNT", href: "/account" }, // <-- corregido
+    { label: "ACCOUNT", href: "/account" }, 
   ];
 
   return (
@@ -19,7 +19,6 @@ export default function Home() {
     >
       <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
 
-        {/* Logo */}
         <Image
           src="/icons/citizen.png"
           alt="Logo"
@@ -28,12 +27,10 @@ export default function Home() {
           className="object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
         />
 
-        {/* Navegación */}
         <nav className="hidden lg:flex items-center justify-center w-full">
           <NavMenu items={navItems} />
         </nav>
 
-        {/* Perfil (ajustado a la derecha) */}
         <Image
           src="/icons/profile.png"
           alt="Profile"
