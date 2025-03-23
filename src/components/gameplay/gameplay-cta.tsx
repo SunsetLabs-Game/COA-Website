@@ -15,7 +15,6 @@ export default function GameplayCTA() {
   useEffect(() => {
     setIsClient(true)
 
-    // Generar partículas una sola vez en el cliente
     const particlesArray = Array.from({ length: 20 }).map((_, i) => ({
       id: i,
       width: Math.random() * 4 + 1,
