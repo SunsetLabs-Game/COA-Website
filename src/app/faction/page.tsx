@@ -7,29 +7,10 @@ import { Button } from "@/components/button"
 import { ShadowProtocolSpecializations } from "@/components/factions/shadow-protocol-specialization"
 import { FactionComparison } from "@/components/factions/faction-comparison"
 import { ChoosingFaction } from "@/components/factions/choosing-faction"
-import { DigitalRainBackground } from "@/components/factions/digital-rain-background"
+import DigitalRainEffect from "@/components/effects/digital-rain-effect"
 
 export default function FactionsPage() {
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     const [activeTab, setActiveTab] = useState("neon")
-    const containerRef = useRef<HTMLDivElement>(null)
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            if (containerRef.current) {
-                const rect = containerRef.current.getBoundingClientRect()
-                setMousePosition({
-                    x: e.clientX - rect.left,
-                    y: e.clientY - rect.top,
-                })
-            }
-        }
-
-        window.addEventListener("mousemove", handleMouseMove)
-        return () => {
-            window.removeEventListener("mousemove", handleMouseMove)
-        }
-    }, [])
 
     const factionData = {
         neon: {
@@ -67,22 +48,8 @@ export default function FactionsPage() {
     const activeFaction = factionData[activeTab as keyof typeof factionData]
 
     return (
-        <div ref={containerRef} className="min-h-screen bg-[#0B1B32] text-white relative overflow-hidden">
-            <DigitalRainBackground />
-
-            {/* Background effects */}
-            <div
-                className="absolute pointer-events-none"
-                style={{
-                    background: `radial-gradient(circle 200px at ${mousePosition.x}px ${mousePosition.y}px, rgba(0, 255, 255, 0.1), transparent)`,
-                    width: "100%",
-                    height: "100%",
-                    top: 0,
-                    left: 0,
-                    zIndex: 1,
-                }}
-            ></div>
-
+        <div className="min-h-screen bg-[#0B1B32] text-white relative overflow-hidden">
+            <DigitalRainEffect />
             <header className="relative pt-16 pb-8 px-4 md:px-8 text-center" style={{ zIndex: 10 }}>
                 <motion.h1
                     className="text-5xl md:text-7xl font-bold mb-4 text-[#00FFFF]"
