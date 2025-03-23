@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function GameplayPage() {
   return (
     <main className="relative min-h-screen bg-[#0e1a2b] overflow-hidden">
-      {/* Fondo animado */}
+
       <div className="fixed inset-0 z-0">
         <DigitalRainEffect />
       </div>
