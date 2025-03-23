@@ -1,0 +1,88 @@
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2),
+                0 0 10px rgba(0, 255, 255, 0.2),
+                0 0 15px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3),
+                0 0 20px rgba(0, 255, 255, 0.3),
+                0 0 30px rgba(0, 255, 255, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.2),
+                0 0 10px rgba(0, 255, 255, 0.2),
+                0 0 15px rgba(0, 255, 255, 0.2);
+  }
+}
+
+.leader-card, .specialization-card {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.leader-card::before,
+.specialization-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at var(--mouse-x) var(--mouse-y),
+    rgba(0, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.leader-card:hover::before,
+.specialization-card:hover::before {
+  opacity: 1;
+}
+
+.leader-card:hover,
+.specialization-card:hover {
+  transform: translateY(-5px);
+  animation: glow 2s infinite;
+}
+
+.leader-card img {
+  transition: transform 0.3s ease;
+}
+
+.leader-card:hover img {
+  transform: scale(1.1);
+}
+
+/* Cyberpunk-style text glow */
+.text-cyan-400 {
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Button hover effect */
+button.bg-cyan-600 {
+  position: relative;
+  overflow: hidden;
+}
+
+button.bg-cyan-600::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(0, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: transform 0.6s;
+}
+
+button.bg-cyan-600:hover::after {
+  transform: rotate(45deg) translate(50%, 50%);
+} 
