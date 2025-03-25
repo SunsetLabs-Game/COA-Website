@@ -4,13 +4,12 @@ import CommunityEvents from "@/components/community/community-events"
 import CommunityLeaderboard from "@/components/community/community-leaderboard"
 import CommunityNews from "@/components/community/community-news"
 import CommunitySocial from "@/components/community/community-social"
-import DigitalRainBackground from "@/components/community/community-rain"
+import DigitalRainEffect from "@/components/effects/digital-rain-effect"
 
 export default function CommunityPage() {
   return (
-    
     <main className="min-h-screen bg-[#0e1a2b] relative">
-      <DigitalRainBackground />
+      <DigitalRainEffect />
       <div className="pt-24 pb-16 relative z-10">
         <CommunityHero />
 
