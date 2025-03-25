@@ -36,6 +36,8 @@ const HomePage = () => {
         <Image
           src="/images/face.png"
           alt="Top image"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover"
         />
 
