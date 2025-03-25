@@ -70,7 +70,9 @@ const Footer: React.FC = () => {
               src="/icons/logotypes.png"
               width={24}
               height={24}
-              style={{ display: "block", maxWidth: "100%", height: "auto" }} alt={""}            />
+              alt="Twitter"
+              style={{ display: "block", maxWidth: "100%", height: "auto" }}
+            />
             <span className="text-sm">Twitter</span>
           </a>
         </div>
