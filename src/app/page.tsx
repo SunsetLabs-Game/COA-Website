@@ -2,6 +2,8 @@ import React from "react";
 import NavMenu from "@/components/layaout/nav-menu";
 import Footer from "@/components/layaout/footer";
 import Image from "next/image";
+import GameplayPreview from "@/components/gameplay/gameplay-preview";
+import TradingEcosystem from "@/components/marketplace/trading-ecosystem";
 
 export default function Home() {
   const navItems = [
@@ -9,7 +11,7 @@ export default function Home() {
     { label: "COMMUNITY", href: "/community" },
     { label: "HELP", href: "/features" },
     { label: "MY ITEMS", href: "/contact" },
-    { label: "ACCOUNT", href: "/account" }, 
+    { label: "ACCOUNT", href: "/account" },
   ];
 
   return (
@@ -19,26 +21,26 @@ export default function Home() {
     >
       <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
 
-  <Image
-    src="/icons/citizen.png"
-    alt="Logo"
-    width={300}
-    height={150}
-    className="w-[300px] h-[150px] object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
-  />
+        <Image
+          src="/icons/citizen.png"
+          alt="Logo"
+          width={300}
+          height={150}
+          className="w-[300px] h-[150px] object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
+        />
 
-  <nav className="hidden lg:flex items-center justify-center w-full">
-    <NavMenu items={navItems} />
-  </nav>
-  
-  <Image
-    src="/icons/myProfile.png"
-    alt="Profile"
-    width={120}
-    height={120}
-    className="hidden sm:block absolute top-6 right-6 w-[120px] h-[120px] object-cover rounded-full md:w-[80px] md:h-[80px]"
-  />
-</header>
+        <nav className="hidden lg:flex items-center justify-center w-full">
+          <NavMenu items={navItems} />
+        </nav>
+
+        <Image
+          src="/icons/myProfile.png"
+          alt="Profile"
+          width={120}
+          height={120}
+          className="hidden sm:block absolute top-6 right-6 w-[120px] h-[120px] object-cover rounded-full md:w-[80px] md:h-[80px]"
+        />
+      </header>
 
       <main className="flex-1 flex flex-col items-center justify-center w-full">
         <div className="flex justify-center items-center text-center p-6 rounded-md text-white max-w-[90%] w-full flex-col h-full">
@@ -59,6 +61,11 @@ export default function Home() {
           </div>
         </div>
       </main>
+      {/* Add Gameplay Preview Section */}
+      <GameplayPreview />
+
+      {/* Add Trading Ecosystem Section */}
+      <TradingEcosystem />
 
       <Footer />
     </div>
