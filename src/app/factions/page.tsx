@@ -7,6 +7,7 @@ import NavMenu from "@/components/layaout/nav-menu";
 import KeyLeaders from '@/components/factions/key-leaders';
 import Specializations from '@/components/factions/specializations';
 import JoiningSection from '@/components/factions/joining-section';
+import Navbar from '@/components/navbar/navbar';
 
 export default function FactionsPage() {
   const navItems = [
@@ -42,7 +43,7 @@ export default function FactionsPage() {
 
   return (
     <div className="min-h-screen text-white cursor-glow animated-bg">
-      <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
+      {/* <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
         <Link href="/" className="z-10">
           <Image
             src="/icons/citizen.png"
@@ -64,9 +65,10 @@ export default function FactionsPage() {
           height={120}
           className="hidden sm:block absolute top-6 right-6 w-[120px] h-[120px] object-cover rounded-full md:w-[80px] md:h-[80px]"
         />
-      </header>
+      </header> */}
+      <Navbar className="flex justify-between items-center px-4 md:px-8" />
 
-      <div className="max-w-7xl mx-auto px-4 pb-8">
+      <div className="max-w-7xl mx-auto px-4 py-8">
         <KeyLeaders />
         
         <div className="augmentation-path rounded-lg bg-gray-900/50 p-8 section-fade-in">

@@ -1,98 +1,137 @@
 "use client";
-import { useState } from "react";
-import { SearchBar } from "@/components/marketplace/search-bar";
-import { SortingButtons } from "@/components/marketplace/sorting-buttons";
-import { FilterSection } from "@/components/marketplace/filter-section";
-import { ItemGrid } from "@/components/marketplace/item-grid";
-import NavMenu from "@/components/layaout/nav-menu";
-import Logo from "@/components/logo";
-import ProfileMenu from "@/components/layaout/profile-menu";
+
+import { useMarketplaceFilters } from "@/hooks/useMarketplaceFilters";
+import { useShoppingCart } from "@/hooks/useShoppingCart";
+import { useMouseFollower } from "@/hooks/useMouseFollower"; 
+import { MarketplaceHeader } from "@/components/marketplace/marketplace-header";
+import { FeaturedItems } from "@/components/marketplace/featured-items";
+import { FilterSidebar } from "@/components/marketplace/filter-sidebar";
+import { ProductSorting } from "@/components/marketplace/product-sorting";
+import { ProductGrid } from "@/components/marketplace/product-grid";
+import { ProductList } from "@/components/marketplace/product-list";  
+import { ShoppingCart } from "@/components/marketplace/shopping-cart";
+import { ProductDetails } from "@/components/marketplace/product-details";
+import { featuredItems, allItems, categories, rarities } from "@/data/marketplace-data";
+import { ItemType } from "@/types/marketplace";
 
 export default function Marketplace() {
-  const mockItems = Array.from({ length: 15 }, (_, i) => ({
-    id: `item-${i}`,
-    imageUrl: "/images/weapon.png",
-    price: 40,
-    rarity: "Rare",
-    rating: 3,
-  }));
-  const [priceRange, setPriceRange] = useState([0, 1000]);
-  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
-  const [items] = useState(mockItems);
 
-  const handleSearch = (query: string) => {
-    console.log("Search:", query);
-    // Implement search logic
+  const {
+    searchQuery,
+    setSearchQuery,
+    priceRange,
+    setPriceRange,
+    selectedCategories,
+    setSelectedCategories,
+    selectedRarities,
+    setSelectedRarities,
+    viewMode,
+    setViewMode,
+    sortOption,
+    setSortOption,
+    showFilters,
+    setShowFilters,
+    selectedItem,
+    setSelectedItem,
+    sortedItems,
+  } = useMarketplaceFilters(allItems);
+
+  const {
+    cartItems,
+    showCart,
+    setShowCart,
+    handleAddToCart,
+    handleRemoveFromCart,
+    handleQuantityChange,
+  } = useShoppingCart();
+
+  const {
+    cursorRef,
+    isHovering,
+    setIsHovering,
+  } = useMouseFollower();
+
+  const handleSearchChange = (value: string) => {
+    setSearchQuery(value);
   };
 
-  const handleSort = (type: "new" | "priceAsc" | "priceDesc" | "rarity") => {
-    console.log("Sort:", type);
-    // Implement sort logic
+  const handleCategoryChange = (category: string, checked: boolean) => {
+    setSelectedCategories(checked ? [...selectedCategories, category] : selectedCategories.filter(c => c !== category));
   };
 
   const handleRarityChange = (rarity: string, checked: boolean) => {
-    console.log("Rarity change:", rarity, checked);
-    // Implement rarity filter logic
+    setSelectedRarities(checked ? [...selectedRarities, rarity] : selectedRarities.filter(r => r !== rarity));
   };
 
-  const handleTypeChange = (type: string, checked: boolean) => {
-    if (checked) {
-      setSelectedTypes([...selectedTypes, type]);
-    } else {
-      setSelectedTypes(selectedTypes.filter((t) => t !== type));
-    }
-    // Implement additional type filter logic
+  const handleViewItem = (item: ItemType) => {
+    setSelectedItem(item);
   };
 
-  const handleInspect = (id: string) => {
-    console.log("Inspect:", id);
-    // Implement inspect logic
-  };
-
-  const handleBuy = (id: string) => {
-    console.log("Buy:", id);
-    // Implement buy logic
-  };
   return (
-    <div className="min-h-screen bg-[url('/images/BACKGROUND_CITIZEN_OF_ARCANIS.jpg')] bg-cover bg-center">
-      <div className="flex justify-between items-center mb-10 px-[80px] py-4">
-        <Logo />
-        <NavMenu
-          items={[
-            { label: "TREND ITEMS", href: "/trend-items" },
-            { label: "BUY", href: "/buy" },
-            { label: "SELL", href: "/sell" },
-            { label: "AUCTION", href: "/auction" },
-          ]}
-        />
-        <ProfileMenu />
-      </div>
-      <div className="container mx-auto p-4">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6 space-x-4">
-          <SearchBar onSearch={handleSearch} />
-          <SortingButtons onSort={handleSort} />
-        </div>
+    <div
+      className="min-h-screen bg-[url('/images/BACKGROUND_CITIZEN_OF_ARCANIS.jpg')] bg-cover bg-center text-white relative overflow-x-hidden"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div ref={cursorRef} className={`pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-cyan-400 z-50 transition-opacity duration-300 ${isHovering ? "opacity-100" : "opacity-0"}`} />
 
-        <div className="flex gap-6">
-          <FilterSection
+      {/* Main content */}
+      <div className="container mx-auto px-4 pb-20">
+        <MarketplaceHeader 
+          searchQuery={searchQuery} 
+          onSearchChange={handleSearchChange}
+          onToggleFilters={() => setShowFilters(!showFilters)}
+          onToggleCart={() => setShowCart(!showCart)} 
+          cartItemsCount={cartItems.length} 
+        />
+
+        <FeaturedItems items={featuredItems} onViewItem={() => {}} onAddToCart={handleAddToCart} />
+
+        <div className="flex flex-col lg:flex-row gap-8">
+          <FilterSidebar
+            showFilters={showFilters}
+            onCloseFilters={() => setShowFilters(false)}
+            categories={categories}
+            rarities={rarities}
+            selectedCategories={selectedCategories}
+            selectedRarities={selectedRarities}
             priceRange={priceRange}
-            onPriceRangeChange={setPriceRange}
+            onCategoryChange={handleCategoryChange}
             onRarityChange={handleRarityChange}
-            onTypeChange={handleTypeChange}
-            selectedTypes={selectedTypes}
+            onPriceRangeChange={setPriceRange}
+            onApplyFilters={() => setShowFilters(false)}
           />
 
-          {/* Main Content */}
-          <div className="flex-1">
-            <ItemGrid
-              items={items}
-              onInspect={handleInspect}
-              onBuy={handleBuy}
-            />
+          <div className="lg:w-3/4">
+            <ProductSorting itemCount={sortedItems.length} viewMode={viewMode} sortOption={sortOption} onViewModeChange={setViewMode} onSortChange={setSortOption} />
+
+            {viewMode === "grid" ? (
+              <ProductGrid 
+                items={sortedItems} 
+                onAddToCart={handleAddToCart} 
+                onViewItem={handleViewItem}
+              />
+            ) : (
+              <ProductList 
+                items={sortedItems} 
+                onAddToCart={handleAddToCart} 
+                onViewItem={handleViewItem}
+              />
+            )}
           </div>
         </div>
       </div>
+
+      <ShoppingCart show={showCart} onClose={() => setShowCart(false)} items={cartItems} onRemoveItem={handleRemoveFromCart} onQuantityChange={handleQuantityChange} />
+
+      <ProductDetails 
+        show={!!selectedItem} 
+        item={selectedItem} 
+        relatedItems={featuredItems} 
+        onClose={() => setSelectedItem(null)} 
+        onAddToCart={handleAddToCart}
+        onViewRelatedItem={handleViewItem}
+      />
     </div>
   );
 }

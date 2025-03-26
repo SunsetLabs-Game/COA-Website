@@ -1,21 +1,34 @@
 "use client"
 
+import type React from "react"
+
+import { useState } from "react"
 import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
 
 interface SearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch: (query: string) => void
 }
 
 export function SearchBar({ onSearch }: SearchBarProps) {
+  const [query, setQuery] = useState("")
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    onSearch(query)
+  }
+
   return (
-    <div className="relative flex-1">
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
-      <input
-        type="search"
-        placeholder="Search"
-        onChange={(e) => onSearch(e.target.value)}
-        className="w-full pl-10 pr-4 py-2 bg-gray-800/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-200"
+    <form onSubmit={handleSubmit} className="relative w-full max-w-md">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+      <Input
+        type="text"
+        placeholder="Search items..."
+        className="pl-10 bg-gray-900/60 border-gray-700 text-white w-full focus:border-cyan-400 focus:ring-cyan-400"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
       />
-    </div>
+    </form>
   )
 }
+
