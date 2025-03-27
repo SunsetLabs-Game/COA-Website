@@ -1,6 +1,7 @@
 import FeaturesCompanions from "@/components/features/features-companions";
 import FeaturesResurrection from "@/components/features/features-resurrection";
 import FeaturesCustomization from "@/components/features/features-customization";
+import FeaturesArsenal from "@/components/features/features-arsenal";
 
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
         <FeaturesResurrection />
         <FeaturesCompanions />
         <FeaturesCustomization />
+        <FeaturesArsenal />
       </div>
     </main>
   );
