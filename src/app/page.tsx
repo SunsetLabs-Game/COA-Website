@@ -1,6 +1,5 @@
 "use client";
 
-import Navbar from "@/components/navbar/navbar";
 import Hero from "@/components/hero/hero";
 import Gamefeatures from "@/components/game-features/game-features";
 import GameplayPreview from "@/components/gameplay/gameplay-preview";
@@ -33,7 +32,6 @@ export default function Home() {
       />
 
       <div className="relative z-10 text-white">
-        <Navbar className="flex justify-between items-center px-4 md:px-8" />
         <Hero className="text-center px-4 md:px-8" />
         <Gamefeatures className="px-4 md:px-8" />
       </div>      

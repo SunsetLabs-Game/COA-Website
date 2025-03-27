@@ -6,6 +6,7 @@ import StarknetProvider from "@/context/starknet-provider"
 import { MetaMaskProvider } from "../context/metamask"; 
 import { Toaster } from "react-hot-toast"
 import ElectricCursor from "@/components/effects/electric-cursor"
+import Navbar from "@/components/navbar/navbar"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         <div className="relative z-10">
           <StarknetProvider>
             <MetaMaskProvider>
+              <Navbar />
               {children}
               <Toaster />
             </MetaMaskProvider>
