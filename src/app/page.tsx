@@ -3,8 +3,18 @@
 import Navbar from "@/components/navbar/navbar";
 import Hero from "@/components/hero/hero";
 import Gamefeatures from "@/components/game-features/game-features";
+import GameplayPreview from "@/components/gameplay/gameplay-preview";
+import TradingEcosystem from "@/components/marketplace/trading-ecosystem";
 
 export default function Home() {
+  const navItems = [
+    { label: "CITIZEN of ARCANIS", href: "/" },
+    { label: "COMMUNITY", href: "/community" },
+    { label: "HELP", href: "/features" },
+    { label: "MY ITEMS", href: "/contact" },
+    { label: "ACCOUNT", href: "/account" },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col relative w-full">
       <div
@@ -26,7 +36,10 @@ export default function Home() {
         <Navbar className="flex justify-between items-center px-4 md:px-8" />
         <Hero className="text-center px-4 md:px-8" />
         <Gamefeatures className="px-4 md:px-8" />
-      </div>
+      </div>      
+      <GameplayPreview />
+      
+      <TradingEcosystem />
     </div>
   );
 }

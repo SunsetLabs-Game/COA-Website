@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react"
 import { motion, useInView } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/button"
 import { ArrowRight } from "lucide-react"
 import Link from "next/link"
 
