@@ -97,7 +97,7 @@ export function ChromeCollectiveProfile() {
             {/* Right Content - Image */}
             <div className='lg:flex-1 w-full h-[400px] justify-center items-center my-auto relative rounded-lg overflow-hidden'>
               <Image
-                src='/placeholder.svg'
+                src='/placeholder_image.svg'
                 alt='Chrome Collective Industrial Zone'
                 fill
                 className='object-cover'
