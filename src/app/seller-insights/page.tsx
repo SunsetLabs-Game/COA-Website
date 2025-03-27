@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { SearchBar } from "@/components/marketplace/search-bar"
 import { SortingButtons } from "@/components/marketplace/sorting-buttons"
-import { FilterSection } from "@/components/marketplace/filter-section"
+import { FilterSection } from "@/components/marketplace/filter-section-marketplace"
 import { ItemGrid } from "@/components/marketplace/item-grid"
 
 // Mock data - replace with actual data fetching
