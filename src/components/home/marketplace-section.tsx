@@ -19,8 +19,8 @@ const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode; titl
 
 export default function MarketplaceSection() {
   return (
-    <section className="w-full py-16 flex flex-col items-center text-center px-4">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0DABFF]">Explore Our Marketplace</h2>
+    <section className="w-full py-16 relative flex flex-col items-center text-center px-4">
+      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[rgb(13,171,255)]">Explore Our Marketplace</h2>
       <p className="text-gray-300 max-w-3xl mb-8">
         Discover rare items, powerful weapons, and cutting-edge augmentations to enhance your gameplay experience.
       </p>

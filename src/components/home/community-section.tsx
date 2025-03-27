@@ -45,12 +45,15 @@ export default function CommunitySection() {
   ]
 
   return (
-    <section className="w-screen bg-[#0A1B32] py-16 flex flex-col items-center text-center px-4">
-      <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0DABFF]">Join Our Community</h2>
+    <section className="w-screen relative  py-16 flex flex-col items-center text-center px-4">
+      <div className="h-full w-full absolute top-0 left-0 bg-[#0A1B32] z-10 opacity-30"></div>
+     <div className="relative z-30">
+     <h2 className="text-4xl md:text-5xl font-bold mb-4 text-[#0DABFF]">Join Our Community</h2>
       <p className="text-gray-300 max-w-3xl mb-12">
         Connect with thousands of players in the most vibrant cyberpunk community.
       </p>
 
+     </div>
       <DottedBorder className="w-full max-w-6xl mb-12 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-6xl px-4">
           {testimonials.map((testimonial) => (
@@ -85,7 +88,7 @@ export default function CommunitySection() {
       </DottedBorder>
 
       <Link href="https://discord.gg/citizensofarcanis" target="_blank" rel="noopener noreferrer">
-        <button className="bg-[#0DABFF] text-white px-8 py-3 rounded-md flex items-center gap-2 hover:bg-[#0D9AEE] transition-all duration-300">
+        <button className="bg-[#0DABFF] relative z-30 text-white px-8 py-3 rounded-md flex items-center gap-2 hover:bg-[#0D9AEE] transition-all duration-300">
           <MessageCircle size={20} />
           Join Our Discord
         </button>

@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-import defaultProfileImage from '@/assets/images/profileAvatar.svg';
-import profileIcon from '@/assets/icons/profileIcon.svg';
-import settingsIcon from '@/assets/icons/settingsIcon.svg';
-import helpIcon from '@/assets/icons/helpIcon.svg';
+import defaultProfileImage from '../../../public/icons/profile.svg';
+import profileIcon from '../../../public/icons/profile.svg';
+import settingsIcon from '../../../public/icons/settings.svg';
+import helpIcon from '../../../public/icons/help.svg';
 
 interface MenuItem {
     label: string;
