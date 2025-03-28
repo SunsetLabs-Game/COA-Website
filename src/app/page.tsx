@@ -5,6 +5,8 @@ import Hero from "@/components/hero/hero";
 import Gamefeatures from "@/components/game-features/game-features";
 import GameplayPreview from "@/components/gameplay/gameplay-preview";
 import TradingEcosystem from "@/components/marketplace/trading-ecosystem";
+import MarketplaceSection from "@/components/home/marketplace-section";
+import CommunitySection from "@/components/home/community-section";
 
 export default function Home() {
   const navItems = [
@@ -36,10 +38,13 @@ export default function Home() {
         <Navbar className="flex justify-between items-center px-4 md:px-8" />
         <Hero className="text-center px-4 md:px-8" />
         <Gamefeatures className="px-4 md:px-8" />
-      </div>      
+      </div>
+      
       <GameplayPreview />
       
       <TradingEcosystem />
+       <MarketplaceSection />
+      <CommunitySection /> 
     </div>
   );
 }
