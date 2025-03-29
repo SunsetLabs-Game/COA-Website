@@ -7,10 +7,10 @@ import { Button } from "@/components/button";
 import { ShadowProtocolSpecializations } from "@/components/factions/shadow-protocol-specialization";
 import { FactionComparison } from "@/components/factions/faction-comparison";
 import { ChoosingFaction } from "@/components/factions/choosing-faction";
+import { ChromeCollectiveProfile } from "@/components/factions/ChromeCollectiveProfile";
+import { NeonSyndicateProfile } from "@/components/factions/NeonSyndicateProfile";
 import DigitalRainEffect from "@/components/effects/digital-rain-effect";
 import { SyndicateSpecializations } from "@/components/factions/SyndicateSpecializations";
-import { ChromeCollectiveProfile } from "@/components/factions/ChromeCollectiveProfile";
-import Image from "next/image";
 
 export default function FactionsPage() {
   const [activeTab, setActiveTab] = useState("neon");
@@ -162,8 +162,7 @@ export default function FactionsPage() {
               <p className="text-gray-300 mb-4">
                 {activeFaction.name} operates with a distinct philosophy and
                 approach to the challenges of Arcanis. Their methods and
-                technologies reflect their core values and strategic
-                objectives.
+                technologies reflect their core values and strategic objectives.
               </p>
               <p className="text-gray-300">
                 Joining this faction will grant you access to unique abilities,
@@ -177,180 +176,10 @@ export default function FactionsPage() {
 
       {/* Neon Syndicate Detailed Section */}
       {activeTab === "neon" && (
-        <motion.section
-          className="max-w-6xl mx-auto px-4 md:px-8 py-16 relative"
-          style={{ zIndex: 10 }}
-          initial="hidden"
-          animate="visible"
-          variants={sectionVariants}
-        >
-          <div className="rounded-xl p-6 md:p-10 bg-[#09162B] bg-opacity-80 border border-opacity-30 border-[#00FFFF]">
-            {/* Header */}
-            <motion.div variants={sectionVariants}>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-cyan-400">
-                Masters of the Digital Realm
-              </h2>
-              <p className="text-gray-300 mb-6 max-w-3xl">
-                The Neon Syndicate emerged from the collapse of the old
-                financial system, when a group of elite hackers and AI
-                specialists seized control of the digital infrastructure.
-                Today, they are the undisputed rulers of the information
-                economy, controlling data flows, cryptocurrency markets, and
-                the digital backbone of Arcanis.
-              </p>
-            </motion.div>
-
-            {/* Philosophy */}
-            <motion.div variants={sectionVariants}>
-              <p className="text-gray-300 mb-8 max-w-3xl">
-                Members of the Syndicate believe that the physical world is
-                merely a shell for the digital realm, where true power resides.
-                They seek to transcend physical limitations through technology,
-                creating a world where information is the ultimate currency.
-              </p>
-            </motion.div>
-
-            {/* Faction Traits */}
-            <motion.div variants={sectionVariants}>
-              <h2 className="text-2xl font-semibold mb-4 text-white">
-                Faction Traits
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                <div className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg">
-                  <h3 className="text-lg font-semibold text-cyan-400">
-                    Headquarters
-                  </h3>
-                  <p className="text-gray-300">The Nexus (Neon District)</p>
-                </div>
-                <div className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg">
-                  <h3 className="text-lg font-semibold text-cyan-400">
-                    Population
-                  </h3>
-                  <p className="text-gray-300">~120,000 members</p>
-                </div>
-                <div className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg">
-                  <h3 className="text-lg font-semibold text-cyan-400">
-                    Primary Resource
-                  </h3>
-                  <p className="text-gray-300">Quantum Processing Power</p>
-                </div>
-                <div className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg">
-                  <h3 className="text-lg font-semibold text-cyan-400">
-                    Faction Currency
-                  </h3>
-                  <p className="text-gray-300">NeonCoin (NEON)</p>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Territory */}
-            <motion.div variants={sectionVariants}>
-              <div className="flex flex-col md:flex-row gap-6 mb-8">
-                <div className="md:w-1/2">
-                  <h2 className="text-2xl font-semibold mb-4 text-white">
-                    Neon Syndicate Territory
-                  </h2>
-                  <p className="text-gray-300 md:pr-6 mt-2">
-                    The Neon District is the technological heart of Arcanis,
-                    where massive data centers and holographic interfaces
-                    dominate the landscape. Here, the Syndicate’s influence is
-                    absolute.
-                  </p>
-                </div>
-                <div className="md:w-1/2">
-                  <Image
-                    src="/images/neon-district.jpg"
-                    alt="Neon District"
-                    width={500}
-                    height={256}
-                    className="rounded-lg object-cover w-full h-64"
-                  />
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Key Leaders */}
-            <motion.div variants={sectionVariants}>
-              <h2 className="text-2xl font-semibold mb-4 text-white text-center">
-                Key Leaders
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {/* Cipher */}
-                <motion.div
-                  className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg"
-                  whileHover="hover"
-                  variants={leaderCardVariants}
-                >
-                  <h3 className="text-xl font-bold text-cyan-400">Cipher</h3>
-                  <p className="text-gray-400 mb-2">The Architect</p>
-                  <div className="h-40 rounded-lg overflow-hidden mb-4">
-                    <Image
-                      src="/images/cipher.jpg"
-                      alt="Cipher"
-                      width={300}
-                      height={160}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-gray-300">
-                    The enigmatic founder of the Neon Syndicate, whose true
-                    identity remains unknown. Cipher appears only as a digital
-                    avatar in the network, issuing directives and shaping the
-                    Syndicate’s vision.
-                  </p>
-                </motion.div>
-
-                {/* Nova */}
-                <motion.div
-                  className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg"
-                  whileHover="hover"
-                  variants={leaderCardVariants}
-                >
-                  <h3 className="text-xl font-bold text-cyan-400">Nova</h3>
-                  <p className="text-gray-400 mb-2">Head of Operations</p>
-                  <div className="h-40 rounded-lg overflow-hidden mb-4">
-                    <Image
-                      src="/images/nova.jpg"
-                      alt="Nova"
-                      width={300}
-                      height={160}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-gray-300">
-                    A former corporate AI developer who now leads the
-                    day-to-day operations. Nova is known for her brilliant
-                    tactical mind and ruthless efficiency.
-                  </p>
-                </motion.div>
-
-                {/* Pulse */}
-                <motion.div
-                  className="p-4 bg-[#09162B] bg-opacity-80 border border-cyan-400 border-opacity-30 rounded-lg"
-                  whileHover="hover"
-                  variants={leaderCardVariants}
-                >
-                  <h3 className="text-xl font-bold text-cyan-400">Pulse</h3>
-                  <p className="text-gray-400 mb-2">Chief of Security</p>
-                  <div className="h-40 rounded-lg overflow-hidden mb-4">
-                    <Image
-                      src="/images/pulse.jpg"
-                      alt="Pulse"
-                      width={300}
-                      height={160}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <p className="text-gray-300">
-                    A legendary hacker who now protects the Syndicate’s digital
-                    infrastructure. Pulse can detect and neutralize threats
-                    before they materialize.
-                  </p>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section>
+        <NeonSyndicateProfile
+          sectionVariants={sectionVariants}
+          leaderCardVariants={leaderCardVariants}
+        />
       )}
 
       {/* Chrome Collective and Shadow Protocol Sections */}
