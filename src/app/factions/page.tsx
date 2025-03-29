@@ -1,3 +1,4 @@
+'use client';
 
 import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
@@ -7,6 +8,7 @@ import KeyLeaders from '@/components/factions/key-leaders';
 import Specializations from '@/components/factions/specializations';
 import JoiningSection from '@/components/factions/joining-section';
 import Navbar from '@/components/navbar/navbar';
+import ShadowProtocol from '@/components/factions/shadowProtocol';
 
 export default function FactionsPage() {
   const navItems = [
@@ -69,12 +71,18 @@ export default function FactionsPage() {
 
       <div className="max-w-7xl mx-auto px-4 py-8">
         <KeyLeaders />
-        
+
         <div className="augmentation-path rounded-lg bg-gray-900/50 p-8 section-fade-in">
           <Specializations />
           <JoiningSection />
+
+        </div>
+        <div className="augmentation-path pt-5">
+          <ShadowProtocol />
         </div>
       </div>
+
+
     </div>
   );
 }

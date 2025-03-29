@@ -6,7 +6,7 @@ import { ShadowProtocolProfile } from '@/components/factions/shadowProtocolProfi
 
 export default function ShadowProtocol() {
     return (
-        <div className='min-h-screen bg-[#0B1B32]'>
+        <div className='min-h-screen'>
             <DigitalRainEffect />
             <ShadowProtocolProfile />
             <KeyLeaders />
