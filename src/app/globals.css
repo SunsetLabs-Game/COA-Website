@@ -5,28 +5,28 @@
 @layer base {
   :root {
     --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 14, 26, 43;
-    --background-end-rgb: 12, 22, 36;
+    --background-start-rgb: 10, 26, 47;
+    --background-end-rgb: 8, 20, 36;
 
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
+    --foreground: 220 100% 98%;
+    --card: 220 20% 15%;
+    --card-foreground: 220 100% 98%;
+    --popover: 220 20% 15%;
+    --popover-foreground: 220 100% 98%;
+    --primary: 220 100% 98%;
+    --primary-foreground: 220 20% 9%;
+    --secondary: 220 20% 96.1%;
+    --secondary-foreground: 220 20% 9%;
+    --muted: 220 20% 96.1%;
+    --muted-foreground: 220 20% 45.1%;
+    --accent: 220 20% 96.1%;
+    --accent-foreground: 220 20% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --border: 220 20% 89.8%;
+    --input: 220 20% 89.8%;
+    --ring: 220 20% 3.9%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -121,3 +121,231 @@ button:hover,
 [role="button"]:hover {
   cursor: none !important;
 }
+
+/* Cursor tracking effect */
+.cursor-glow {
+  cursor: none;
+}
+
+.cursor-glow::before {
+  content: '';
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.4) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  mix-blend-mode: screen;
+}
+
+/* Section transitions */
+.section-fade-in {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  animation: quickFadeIn 0.2s ease-out forwards;
+}
+
+.section-fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes quickFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Electric border effect */
+@keyframes electric-border {
+  0% {
+    box-shadow: 0 0 5px #ff0000,
+                inset 0 0 5px #ff0000;
+  }
+  25% {
+    box-shadow: 0 0 10px #ff3333,
+                inset 0 0 10px #ff3333;
+  }
+  50% {
+    box-shadow: 0 0 15px #ff6666,
+                inset 0 0 15px #ff6666;
+  }
+  75% {
+    box-shadow: 0 0 10px #ff3333,
+                inset 0 0 10px #ff3333;
+  }
+  100% {
+    box-shadow: 0 0 5px #ff0000,
+                inset 0 0 5px #ff0000;
+  }
+}
+
+.electric-border-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.electric-border-hover:hover,
+.group:hover .group-hover\:electric-border-hover {
+  animation: electric-border 1s infinite;
+}
+
+/* Augmentation path animation */
+.augmentation-path {
+  position: relative;
+  overflow: hidden;
+}
+
+.augmentation-path::before,
+.augmentation-path::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.augmentation-path::before {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff0000, transparent);
+  animation: path-flow-horizontal 3s linear infinite;
+}
+
+.augmentation-path::after {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #ff0000, transparent);
+  animation: path-flow-vertical 3s linear infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes path-flow-horizontal {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+@keyframes path-flow-vertical {
+  0% { top: -100%; }
+  100% { top: 100%; }
+}
+
+/* Background animation with blue tones */
+@keyframes bg-pulse {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@property --rain-char {
+  syntax: '<string>';
+  initial-value: '10101';
+  inherits: false;
+}
+
+.animated-bg {
+  background: linear-gradient(45deg, #0a1a2f 0%, #1a2a3f 50%, #0a1a2f 100%);
+  background-size: 200% 200%;
+  animation: bg-pulse 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.rain-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.rain-column {
+  position: absolute;
+  top: -20%;
+  color: rgba(0, 255, 255, 0.1);
+  font-family: monospace;
+  font-size: 1.2em;
+  line-height: 1em;
+  white-space: nowrap;
+  transform: translateY(0);
+  animation: rain-fall linear infinite;
+}
+
+@keyframes rain-fall {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+/* Generate 20 rain columns with different properties */
+.rain-container::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent calc(100% / 20 - 1px),
+      rgba(0, 150, 255, 0.03) calc(100% / 20),
+      transparent calc(100% / 20 + 1px)
+    );
+}
+
+/* Add a subtle dark gradient overlay */
+.animated-bg::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 26, 47, 0.2),
+    rgba(10, 26, 47, 0.4)
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Ensure content is above the rain effect */
+.animated-bg > * {
+  position: relative;
+  z-index: 3;
+}
+
+/* Add rain columns dynamically with JavaScript */
+.rain-column:nth-child(3n) {
+  animation-duration: 4s;
+  opacity: 0.3;
+}
+
+.rain-column:nth-child(3n + 1) {
+  animation-duration: 6s;
+  opacity: 0.2;
+}
+
+.rain-column:nth-child(3n + 2) {
+  animation-duration: 8s;
+  opacity: 0.1;
+}
+
