@@ -75,6 +75,9 @@ export default function Marketplace() {
     >
       <div ref={cursorRef} className={`pointer-events-none fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-cyan-400 z-50 transition-opacity duration-300 ${isHovering ? "opacity-100" : "opacity-0"}`} />
 
+      {/* Navbar space */}
+      <div className="h-16"></div>
+
       {/* Main content */}
       <div className="container mx-auto px-4 pb-20">
         <MarketplaceHeader 
@@ -135,3 +138,4 @@ export default function Marketplace() {
     </div>
   );
 }
+
