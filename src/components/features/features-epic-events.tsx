@@ -89,37 +89,39 @@ export default function EpicEvents() {
 
               <p className="text-gray-300 text-sm mb-4">{event.description}</p>
 
-              <div className="flex items-center">
-                <Trophy className="w-4 h-4 text-cyan-400 mr-2" />
-                <p className="text-sm text-gray-300">
-                  <span className="text-cyan-300 font-medium">Rewards:</span>{" "}
-                  {event.rewards}
-                </p>
+              <div className="flex flex-col items-start bg-[#11273f] shadow-lg p-3 rounded">
+                <div className="flex items-center justify-center gap-3">
+                  <Trophy className="w-5 h-5 text-cyan-400" />
+                  <p className="text-sm text-gray-400">Rewards:</p>
+                </div>
+                <p className="text-cyan-400 text-sm mt-2">{event.rewards}</p>
               </div>
             </div>
           </motion.div>
         ))}
       </div>
 
-      <div className="bg-[#0d1524]/80 rounded-xl border border-blue-800/30 p-4 mb-8">
-        <div className="flex">
+      <div className="bg-[#0f172a] rounded-xl p-5 mb-8">
+        <div className="flex items-start">
           <div className="bg-blue-500/20 p-2 rounded-full mr-3 flex-shrink-0">
             <Rocket className="w-5 h-5 text-cyan-300" />
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-white mb-1">
+            <h3 className="text-xl font-bold text-white mb-2">
               World-Changing Events
             </h3>
-            <p className="text-gray-300 text-xs mb-2 leading-relaxed">
+            <p className="text-gray-300 text-sm mb-2">
               Major events in Arcanis have lasting consequences on the game
               world. Player actions during these events can permanently alter
               territories, unlock new storylines, or even change the balance of
               power between factions.
             </p>
-            <p className="text-xs text-cyan-200 flex items-center">
-              <Users className="w-3 h-3 mr-1 inline" />
-              Last major event had 10,000+ participants
-            </p>
+            <div className="flex items-center">
+              <Users className="w-4 h-4 text-cyan-400 mr-2" />
+              <p className="text-sm text-gray-300">
+                Last major event had 10,000+ participants
+              </p>
+            </div>
           </div>
         </div>
       </div>
