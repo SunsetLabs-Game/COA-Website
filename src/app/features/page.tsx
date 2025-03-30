@@ -5,7 +5,9 @@ import FeaturesHero from "@/components/features/features-hero";
 import FeaturesCustomization from "@/components/features/features-customization";
 import FeaturesArsenal from "@/components/features/features-arsenal";
 import FeaturesWorldExploration from "@/components/features/features-world-exploration";
+import FeaturesDualEcononomic from "@/components/features/features-dual-economic";
 import DigitalRainEffect from "@/components/effects/digital-rain-effect";
+import FeaturesEpicEvents from "@/components/features/features-epic-events";
 
 export default function FeaturesPage() {
   return (
@@ -13,12 +15,16 @@ export default function FeaturesPage() {
       <FeaturesHero />
       <DigitalRainEffect />
       <div className="container mx-auto px-4">
+        <FeaturesResurrection />
         <FeaturesFactions />
         <FeaturesResurrection />
         <FeaturesCompanions />
         <FeaturesCustomization />
         <FeaturesArsenal />
-        <FeaturesWorldExploration />
+        <FeaturesWorldExploration /> */}
+        <FeaturesDualEcononomic />  
+        <FeaturesEpicEvents/>
+
       </div>
     </main>
   );
