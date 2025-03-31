@@ -6,8 +6,6 @@ import Link from "next/link"
 import { motion } from "framer-motion"
 import { ChevronRight } from "lucide-react"
 
-import Navbar from "@/components/navbar/navbar"
-import NavMenu from "@/components/layaout/nav-menu"
 import { Button } from "@/components/button"
 
 import DigitalRainEffect from "@/components/effects/digital-rain-effect"
@@ -18,6 +16,8 @@ import { FactionComparison } from "@/components/factions/faction-comparison"
 import { ChoosingFaction } from "@/components/factions/choosing-faction"
 import { SyndicateSpecializations } from "@/components/factions/SyndicateSpecializations"
 import FactionsOverview from "@/components/factions/factions-overview"
+import FactionRelations from "@/components/factions/factions-comparison"
+import ChooseYourPath from "@/components/factions/factions-cta"
 
 export default function FactionsPage() {
   const [activeTab, setActiveTab] = useState("neon")
@@ -101,7 +101,6 @@ export default function FactionsPage() {
     <div className="min-h-screen text-white cursor-glow animated-bg relative overflow-hidden">
       <DigitalRainEffect />
 
-      {/* Logo y Navbar */}
       <header className="w-full flex justify-between items-center p-6 relative h-[200px]">
         <Link href="/" className="z-10">
           <Image
@@ -112,9 +111,7 @@ export default function FactionsPage() {
             className="w-[300px] h-[150px] object-contain absolute top-6 left-6 md:w-[200px] md:h-[100px] sm:w-[120px] sm:h-[60px] sm:top-4 sm:left-4"
           />
         </Link>
-        <nav className="hidden lg:flex items-center justify-center w-full">
-          <NavMenu items={navItems} />
-        </nav>
+
         <Image
           src="/icons/myProfile.png"
           alt="Profile"
@@ -124,8 +121,6 @@ export default function FactionsPage() {
         />
       </header>
 
-
-      {/* Hero Section */}
       <section className="relative pt-10 pb-8 px-4 md:px-8 text-center z-10">
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 text-[#00FFFF]"
@@ -145,9 +140,6 @@ export default function FactionsPage() {
         </motion.p>
       </section>
 
-
-
-      {/* Tabs */}
       <section className="relative max-w-6xl mx-auto px-4 md:px-8 mb-12 z-10">
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {Object.entries(factionData).map(([key, faction]) => (
@@ -216,17 +208,17 @@ export default function FactionsPage() {
         </motion.div>
       </section>
 
-      {/* Dynamic Section */}
       {activeTab === "neon" && (
         <NeonSyndicateProfile sectionVariants={sectionVariants} leaderCardVariants={leaderCardVariants} />
       )}
       {activeTab === "chrome" && <ChromeCollectiveProfile />}
       {activeTab === "shadow" && <ShadowProtocolSpecializations />}
 
-      {/* Static sections */}
       <FactionComparison />
       <ChoosingFaction />
       <SyndicateSpecializations />
+      <FactionRelations />
+      <ChooseYourPath />
     </div>
   )
 }
