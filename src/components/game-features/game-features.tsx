@@ -10,7 +10,7 @@ const GameFeatures: React.FC<{ className?: string }> = ({ className }) => {
   ];
 
   return (
-    <div className={`py-20 mt-16 bg-gradient-to-b from-transparent via-[#071628] to-[#071628] ${className}`}>
+    <div className={`flex flex-col items-center justify-center py-20 mt-16 bg-black/30 rounded-xl shadow-lg ${className}`}>
       <div className="container mx-auto text-center text-white mt-24">
         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-[#03b3fe]">Game Features</h2>
         <p className="text-lg md:text-xl mb-12">Explore the chaotic world of Arcanis with these groundbreaking features</p>
