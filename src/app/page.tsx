@@ -19,9 +19,11 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative w-full">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-center bg-no-repeat"
         style={{
           backgroundImage: "url('/images/background-coa.jpg')",
+          backgroundSize: "100% 100%",
+          backgroundAttachment: "fixed",
           filter: "brightness(50%)",
         }}
       />
