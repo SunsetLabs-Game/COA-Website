@@ -6,6 +6,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { usePathname } from "next/navigation"
+import StarknetConnect from "@/components/wallet/starknet-connect"
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -91,10 +92,17 @@ export default function Navbar() {
             >
               Community
             </Link>
+            <Link
+              href="/wallet-connect"
+              className={`transition-colors ${isActive("/wallet-connect") ? "text-[#00aaff]" : "text-white hover:text-[#00aaff]"}`}
+            >
+              Wallet
+            </Link>
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button and Wallet Connect */}
+          <div className="hidden md:flex items-center space-x-4">
+            <StarknetConnect />
             <Button className="bg-[#00aaff] hover:bg-[#00aaff]/80 text-white">Play Now</Button>
           </div>
 
@@ -103,6 +111,7 @@ export default function Navbar() {
             className="md:hidden text-white"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
+            type="button"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -156,6 +165,16 @@ export default function Navbar() {
               >
                 Community
               </Link>
+              <Link
+                href="/wallet-connect"
+                className={`py-2 transition-colors ${isActive("/wallet-connect") ? "text-[#00aaff]" : "text-white hover:text-[#00aaff]"}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Wallet
+              </Link>
+              <div className="py-2">
+                <StarknetConnect />
+              </div>
               <Button className="bg-[#00aaff] hover:bg-[#00aaff]/80 text-white w-full">Play Now</Button>
             </nav>
           </div>
