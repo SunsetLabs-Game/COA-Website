@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import StarknetProvider from "@/context/starknet-provider"
 import { MetaMaskProvider } from "../context/metamask"; 
+import { WalletProvider } from "@/context/wallet-provider";
 import { Toaster } from "react-hot-toast"
 import ElectricCursor from "@/components/effects/electric-cursor"
 import Navbar from "@/components/navbar/navbar"
@@ -35,11 +36,13 @@ export default function RootLayout({
       >
         <div className="relative z-10">
           <StarknetProvider>
-            <MetaMaskProvider>
-              <Navbar />
-              {children}
-              <Toaster />
-            </MetaMaskProvider>
+            <WalletProvider>
+              <MetaMaskProvider>
+                <Navbar />
+                {children}
+                <Toaster />
+              </MetaMaskProvider>
+            </WalletProvider>
           </StarknetProvider>
         </div>
         <ElectricCursor />
