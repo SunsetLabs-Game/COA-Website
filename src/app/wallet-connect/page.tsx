@@ -17,10 +17,7 @@ export default function WalletConnect() {
     getNetworkName,
   } = useStarknetWallet();
 
-  // Update wallet info when the component mounts to reflect current state
   useEffect(() => {
-    // We don't need to do anything here; the hook will update automatically
-    // based on the current wallet connection
   }, []);
 
   return (
