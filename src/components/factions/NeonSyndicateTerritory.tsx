@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+import neon_district_img from "../../../public/images/neon-territory.webp";
+
 interface NeonSyndicateTerritoryProps {
   variants: {
     hidden: { opacity: number; y: number };
@@ -28,7 +30,7 @@ export function NeonSyndicateTerritory({
         </div>
         <div className="md:w-1/2">
           <Image
-            src="/images/neon-district.jpg"
+            src={neon_district_img}
             alt="Neon District"
             width={500}
             height={256}

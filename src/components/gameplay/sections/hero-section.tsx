@@ -57,7 +57,7 @@ export default function GameplayHero() {
 
             {/* Video placeholder */}
             <div className="aspect-video bg-[#0a0a0a] relative overflow-hidden">
-              <img
+              <Image
                 src="/placeholder.svg?height=720&width=1280"
                 alt="Gameplay preview"
                 className="w-full h-full object-cover opacity-80"

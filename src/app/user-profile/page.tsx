@@ -1,36 +1,71 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 import Image from "next/image";
-import Guns from "@/components/guns";
+import Guns from "@/components/misc/guns";
 import Header from "@/components/layaout/header";
 
 const HomePage = () => {
-
   const svgImages = [
-    { src: '/images/X.svg', alt: 'Icon 1' },
-    { src: '/images/insta.svg', alt: 'Icon 2' },
-    { src: '/images/telegram.svg', alt: 'Icon 3' },
-    { src: '/images/discord.svg', alt: 'Icon 3' },
+    { src: "/images/X.svg", alt: "Icon 1" },
+    { src: "/images/insta.svg", alt: "Icon 2" },
+    { src: "/images/telegram.svg", alt: "Icon 3" },
+    { src: "/images/discord.svg", alt: "Icon 3" },
   ];
 
-  const [activeItem, setActiveItem] = useState(0);  
+  const [activeItem, setActiveItem] = useState(0);
   const navItems = [
-    { label: "Collected", bgColor: "bg-blue-500", border: "border-blue-600", activeColor: "text-white", value: "home" },
-    { label: "Created", bgColor: "bg-green-500", border: "border-green-600", activeColor: "text-white", value: "about" },
-    { label: "Favourites", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
-    { label: "Activity", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
-    { label: "Watchlist", bgColor: "bg-red-500", border: "border-red-600", activeColor: "text-white", value: "services" },
-    { label: "Transaction", bgColor: "bg-yellow-500", border: "border-yellow-600", activeColor: "text-white", value: "contact" },
+    {
+      label: "Collected",
+      bgColor: "bg-blue-500",
+      border: "border-blue-600",
+      activeColor: "text-white",
+      value: "home",
+    },
+    {
+      label: "Created",
+      bgColor: "bg-green-500",
+      border: "border-green-600",
+      activeColor: "text-white",
+      value: "about",
+    },
+    {
+      label: "Favourites",
+      bgColor: "bg-red-500",
+      border: "border-red-600",
+      activeColor: "text-white",
+      value: "services",
+    },
+    {
+      label: "Activity",
+      bgColor: "bg-yellow-500",
+      border: "border-yellow-600",
+      activeColor: "text-white",
+      value: "contact",
+    },
+    {
+      label: "Watchlist",
+      bgColor: "bg-red-500",
+      border: "border-red-600",
+      activeColor: "text-white",
+      value: "services",
+    },
+    {
+      label: "Transaction",
+      bgColor: "bg-yellow-500",
+      border: "border-yellow-600",
+      activeColor: "text-white",
+      value: "contact",
+    },
   ];
 
   const handleClick = (index: number) => {
-    setActiveItem(index); 
+    setActiveItem(index);
   };
 
   return (
     <>
-    <Header/>
+      <Header />
       <div className="relative ">
         {/* Background Image */}
         <Image
@@ -68,11 +103,9 @@ const HomePage = () => {
                     height={16}
                     objectFit="contain"
                   />
-                    <button className="">
-                  0xB8c7...A1B2
-                </button>
+                  <button className="">0xB8c7...A1B2</button>
 
-                <Image
+                  <Image
                     src="/images/verified.svg"
                     alt="Ethereum Icon"
                     width={16}
@@ -80,20 +113,19 @@ const HomePage = () => {
                     objectFit="contain"
                   />
                 </div>
-              
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="flex flex-col right-0 gap-4 absolute top-5 sm:top-4"> 
+            <div className="flex flex-col right-0 gap-4 absolute top-5 sm:top-4">
               <div className="flex flex-wrap gap-4 justify-center sm:justify-end">
                 {svgImages.map((image, index) => (
-                  <div key={index} className="w-[20px] h-[20px]"> 
+                  <div key={index} className="w-[20px] h-[20px]">
                     <Image
-                      src={image.src}  
+                      src={image.src}
                       alt={image.alt}
-                      width={64}      
-                      height={64}       
+                      width={64}
+                      height={64}
                       objectFit="contain"
                     />
                   </div>
@@ -104,11 +136,12 @@ const HomePage = () => {
               <button className="w-auto gap-3 h-[38px] text-white px-2 py-3 rounded-lg border-2 border-customCyan bg-customBlue flex items-center justify-between mt-4 sm:mt-0">
                 Share Profile
                 <Image
-                    src="/images/edit.svg" alt={"edit"}
-                    width={24}      
-                    height={24}       
-                    objectFit="contain"
-                  />
+                  src="/images/edit.svg"
+                  alt={"edit"}
+                  width={24}
+                  height={24}
+                  objectFit="contain"
+                />
               </button>
             </div>
 
@@ -121,7 +154,11 @@ const HomePage = () => {
                       <li key={index}>
                         <button
                           onClick={() => handleClick(index)} // Handle active item on click
-                          className={`w-[140px] px-6 py-3 rounded-lg border-2 border-customCyan ${activeItem === index ? 'bg-white text-black' : 'bg-transparent text-white'} ${activeItem === index ? 'bg-opacity-90' : ''}`}
+                          className={`w-[140px] px-6 py-3 rounded-lg border-2 border-customCyan ${
+                            activeItem === index
+                              ? "bg-white text-black"
+                              : "bg-transparent text-white"
+                          } ${activeItem === index ? "bg-opacity-90" : ""}`}
                         >
                           {item.label}
                         </button>
@@ -146,22 +183,32 @@ const HomePage = () => {
                 </>
               ) : activeItem === 1 ? (
                 <>
-                  <div className="text-white mt-6">About section content goes here!</div>
+                  <div className="text-white mt-6">
+                    About section content goes here!
+                  </div>
                 </>
               ) : activeItem === 2 ? (
                 <>
-                  <div className="text-white mt-6">Services section content goes here!</div>
+                  <div className="text-white mt-6">
+                    Services section content goes here!
+                  </div>
                 </>
               ) : activeItem === 3 ? (
                 <>
-                  <div className="text-white mt-6">Contact section content goes here!</div>
+                  <div className="text-white mt-6">
+                    Contact section content goes here!
+                  </div>
                 </>
               ) : activeItem === 4 ? (
                 <>
-                  <div className="text-white mt-6">Contact section content goes here!</div>
+                  <div className="text-white mt-6">
+                    Contact section content goes here!
+                  </div>
                 </>
               ) : (
-                <div className="text-white mt-6">Please select a valid option.</div>
+                <div className="text-white mt-6">
+                  Please select a valid option.
+                </div>
               )}
             </div>
           </div>

@@ -77,7 +77,7 @@ export default function CombatSystem() {
         >
           <div className="aspect-video bg-[#0c1624] relative">
             <Image
-               src="/images/combat.png"
+              src="/images/combat.png"
               alt="Combat gameplay"
               width={1280}
               height={720}
@@ -135,8 +135,8 @@ export default function CombatSystem() {
 
           <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4 mt-6">
             <p className="text-[#00ffff] italic">
-              "The combat in Citizen of Arcanis feels responsive and impactful, with each weapon having a distinct
-              weight and purpose." - CyberGamer Magazine
+              &quot;The combat in Citizen of Arcanis feels responsive and impactful, with each weapon having a distinct
+              weight and purpose.&quot; - CyberGamer Magazine
             </p>
           </div>
         </motion.div>

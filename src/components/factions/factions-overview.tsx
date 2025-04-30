@@ -73,7 +73,7 @@ export default function FactionsOverview() {
               <p className="text-gray-400 mb-4">{faction.description}</p>
               <div className="bg-[#162a43]/50 p-4 rounded-lg">
                 <h4 className="text-white font-medium mb-2">Philosophy</h4>
-                <p className="text-gray-300 italic">"{faction.philosophy}"</p>
+                <p className="text-gray-300 italic">&quot;{faction.philosophy}&quot;</p>
               </div>
             </div>
           </motion.div>
