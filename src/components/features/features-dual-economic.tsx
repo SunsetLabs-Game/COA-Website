@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ShoppingCart,
@@ -9,8 +8,14 @@ import {
   Hammer,
   Clock,
   FileText,
+  Skull,
+  Zap,
+  Ban,
+  UserX,
+  Users,
+  Cpu,
+  Building,
 } from "lucide-react";
-import { Skull, Zap, Ban, UserX, Users, Cpu, Building } from "lucide-react";
 
 const officialFeatures = [
   {
@@ -67,20 +72,6 @@ const blackMarketFeatures = [
 ];
 
 export default function FeaturesPage() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen text-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">

@@ -70,7 +70,7 @@ export default function CraftingResources() {
         >
           <div className="aspect-video bg-[#0c1624] relative">
             <Image
-               src="/images/crafting.png"
+              src="/images/crafting.png"
               alt="Crafting interface"
               width={1280}
               height={720}
@@ -129,75 +129,12 @@ export default function CraftingResources() {
 
           <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4">
             <p className="text-[#00ffff] italic">
-              "The crafting system in Citizen of Arcanis offers unprecedented depth, allowing players to create truly
-              unique items that reflect their personal style and strategy." - Tech Gaming Review
+              &quot;The crafting system in Citizen of Arcanis offers unprecedented depth, allowing players to create truly
+              unique items that reflect their personal style and strategy.&quot; - Tech Gaming Review
             </p>
           </div>
         </motion.div>
       </div>
-
-      <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {craftingSystems.map((system, index) => (
-          <motion.div
-            key={system.name}
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-            className="bg-gradient-to-br from-[#0c1624] to-[#162a43] p-6 rounded-lg border border-[#162a43] hover:border-[#00aaff]/50 transition-all duration-300"
-          >
-            <div className="bg-[#00aaff]/10 p-3 rounded-full inline-block mb-4">{system.icon}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{system.name}</h3>
-            <p className="text-gray-400 text-sm mb-4">{system.description}</p>
-
-            <div>
-              <h4 className="text-xs text-gray-500 uppercase mb-2">Features</h4>
-              <ul className="space-y-2">
-                {system.features.map((feature) => (
-                  <li key={feature} className="text-gray-300 text-sm flex items-start">
-                    <span className="text-[#00aaff] mr-2">•</span>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.6, delay: 0.6 }}
-        className="mt-12 bg-[#0c1624] border border-[#162a43] rounded-lg p-6"
-      >
-        <h3 className="text-xl font-bold text-white mb-4">Resource Gathering</h3>
-        <p className="text-gray-400 mb-6">
-          Resources in Arcanis are scattered throughout the world, encouraging exploration and strategic gathering:
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="bg-[#162a43]/50 p-4 rounded-lg border border-[#00aaff]/10">
-            <h4 className="text-white font-medium mb-2">Mining Operations</h4>
-            <p className="text-gray-400 text-sm">
-              Extract valuable minerals and metals from deposits found in various territories.
-            </p>
-          </div>
-
-          <div className="bg-[#162a43]/50 p-4 rounded-lg border border-[#00aaff]/10">
-            <h4 className="text-white font-medium mb-2">Salvage Operations</h4>
-            <p className="text-gray-400 text-sm">
-              Recover components and materials from abandoned technology and defeated enemies.
-            </p>
-          </div>
-
-          <div className="bg-[#162a43]/50 p-4 rounded-lg border border-[#00aaff]/10">
-            <h4 className="text-white font-medium mb-2">Energy Harvesting</h4>
-            <p className="text-gray-400 text-sm">
-              Collect volatile energy sources from quantum anomalies and power stations.
-            </p>
-          </div>
-        </div>
-      </motion.div>
     </SectionContainer>
   )
 }

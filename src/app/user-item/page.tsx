@@ -3,7 +3,7 @@ import React, { useState, useMemo } from "react"
 import NavMenu from "@/components/layaout/nav-menu"
 import SearchBar from "@/components/common/search-bar"
 import { MyItemCard } from "@/components/cards/my-intem-card"
-import { FilterIcon, SortAscIcon } from "lucide-react"
+import { FilterIcon } from "lucide-react"
 
 const navItems = [
   { label: "Home", href: "/" },

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; // Import the Next.js Image component
 
 const GameFeatures: React.FC<{ className?: string }> = ({ className }) => {
   const features = [
@@ -18,7 +19,13 @@ const GameFeatures: React.FC<{ className?: string }> = ({ className }) => {
           {features.map((feature, index) => (
             <div key={index} className="bg-[#1a2b3c] p-6 rounded-lg shadow-lg">
               <div className="text-left mb-4 bg-[#071628] p-4 rounded-lg cursor-pointer hover:border-2 hover:border-[#03b3fe] focus:border-2 focus:border-[#03b3fe]">
-                <img src={feature.icon} alt={feature.title} className="w-12 h-12" />
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={48} // Specify width
+                  height={48} // Specify height
+                  className="w-12 h-12"
+                />
               </div>
               <h3 className="text-2xl font-bold mb-2 text-left">{feature.title}</h3>
               <p className='text-left'>{feature.description}</p>

@@ -2,30 +2,34 @@
 
 import { motion } from "framer-motion"
 import { Button } from "../button"
+import { Sword, Server, MessageSquare, BookOpen } from "lucide-react"
 
 export function ChoosingFaction() {
   const benefits = [
     {
-      icon: "✅",
+      icon: <Sword />,
       title: "Abilities & Combat",
       description: "Your abilities and combat style will be shaped by your faction's specializations.",
     },
     {
-      icon: "✅",
+      icon: <Server />,
       title: "Technology Access",
       description: "Your access to technology and resources will depend on your faction's strengths.",
     },
     {
-      icon: "✅",
+      icon: <MessageSquare />,
       title: "NPC Interactions",
       description: "Your interactions with NPCs and faction members will be influenced by your allegiance.",
     },
     {
-      icon: "✅",
+      icon: <BookOpen />,
       title: "Storyline",
       description: "Your storyline and progression will follow unique paths based on your faction choice.",
     },
   ]
+
+  const cardStyles = "bg-[#09162B] p-6 rounded-lg border border-[#0a3653]"
+  const buttonStyles = "px-8 py-6 text-lg font-semibold duration-500"
 
   return (
     <motion.section
@@ -66,7 +70,7 @@ export function ChoosingFaction() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.1 * index }}
-                className="bg-[#09162B] p-6 rounded-lg border border-[#0a3653]"
+                className={`${cardStyles}`}
                 whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
               >
                 <div className="text-2xl mb-3">{benefit.icon}</div>
@@ -77,10 +81,17 @@ export function ChoosingFaction() {
           </div>
 
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button className="bg-[#00FFFF] hover:bg-[#00CCCC] text-black font-semibold px-8 py-6 text-lg">
+            <Button
+              className={`bg-[#00FFFF] hover:bg-[#00CCCC] text-gray-800 ${buttonStyles}`}
+              aria-label="Play Now"
+            >
               🎮 Play Now
             </Button>
-            <Button variant="outline" className="border-[#00FFFF] text-[#00FFFF] hover:bg-[#0a3653] px-8 py-6 text-lg">
+            <Button
+              variant="outline"
+              className={`border-[#00FFFF] text-gray-800 hover:text-gray-100 hover:bg-[#0a3653] ${buttonStyles}`}
+              aria-label="Join Community"
+            >
               🤝 Join Community
             </Button>
           </div>
@@ -89,4 +100,3 @@ export function ChoosingFaction() {
     </motion.section>
   )
 }
-

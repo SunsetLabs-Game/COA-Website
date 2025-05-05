@@ -1,19 +1,24 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useEffect, useRef } from "react"
-import { motion } from "framer-motion"
-import { Eye, Brain, Target, Building2 } from "lucide-react"
+import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
+import { Eye, Brain, Target, Building2 } from "lucide-react";
 
 interface SpecializationCardProps {
-  icon: React.ReactNode
-  title: string
-  description: string
-  delay: number
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+  delay: number;
 }
 
-const SpecializationCard = ({ icon, title, description, delay }: SpecializationCardProps) => {
+const SpecializationCard = ({
+  icon,
+  title,
+  description,
+  delay,
+}: SpecializationCardProps) => {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,55 +32,63 @@ const SpecializationCard = ({ icon, title, description, delay }: SpecializationC
       <h3 className="text-xl font-semibold text-white">{title}</h3>
       <p className="text-gray-400 text-sm">{description}</p>
     </motion.div>
-  )
-}
+  );
+};
 
 export function ShadowProtocolSpecializations() {
-  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
+    const canvas = canvasRef.current;
+    if (!canvas) return;
 
-    const ctx = canvas.getContext("2d")
-    if (!ctx) return
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
 
     // Set canvas dimensions
     const resizeCanvas = () => {
-      canvas.width = canvas.offsetWidth
-      canvas.height = canvas.offsetHeight
-    }
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    };
 
-    resizeCanvas()
-    window.addEventListener("resize", resizeCanvas)
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     // Lightning animation
-    let animationFrameId: number
-    const particles: { x: number; y: number; vx: number; vy: number; life: number; size: number; color: string }[] = []
+    let animationFrameId: number;
+    const particles: {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      life: number;
+      size: number;
+      color: string;
+    }[] = [];
 
     const createLightning = () => {
       // Starting point (bottom right)
-      let x = canvas.width - 20
-      let y = canvas.height - 20
+      let x = canvas.width - 20;
+      let y = canvas.height - 20;
 
       // End point (random position in top right quadrant)
-      const endX = canvas.width - Math.random() * (canvas.width / 2)
-      const endY = Math.random() * (canvas.height / 2)
+      const endX = canvas.width - Math.random() * (canvas.width / 2);
+      const endY = Math.random() * (canvas.height / 2);
 
       // Draw lightning path
-      ctx.beginPath()
-      ctx.moveTo(x, y)
+      ctx.beginPath();
+      ctx.moveTo(x, y);
 
       // Create jagged path
       while (Math.abs(x - endX) > 10 || Math.abs(y - endY) > 10) {
-        const dx = (endX - x) * 0.3
-        const dy = (endY - y) * 0.3
+        const dx = (endX - x) * 0.3;
+        const dy = (endY - y) * 0.3;
 
         // Add randomness to path
-        x += dx + (Math.random() * 20 - 10)
-        y += dy + (Math.random() * 20 - 10)
+        x += dx + (Math.random() * 20 - 10);
+        y += dy + (Math.random() * 20 - 10);
 
-        ctx.lineTo(x, y)
+        ctx.lineTo(x, y);
 
         // Add particles along the path
         if (Math.random() > 0.5) {
@@ -87,69 +100,69 @@ export function ShadowProtocolSpecializations() {
             life: Math.random() * 20 + 10,
             size: Math.random() * 2 + 1,
             color: `rgba(0, 255, 255, ${Math.random() * 0.5 + 0.5})`,
-          })
+          });
         }
       }
 
       // Finish at end point
-      ctx.lineTo(endX, endY)
+      ctx.lineTo(endX, endY);
 
       // Style and draw the lightning
-      ctx.strokeStyle = "#00FFFF"
-      ctx.lineWidth = 2
-      ctx.globalAlpha = 0.7
-      ctx.stroke()
+      ctx.strokeStyle = "#00FFFF";
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = 0.7;
+      ctx.stroke();
 
       // Add glow effect
-      ctx.shadowColor = "#00FFFF"
-      ctx.shadowBlur = 10
-      ctx.globalAlpha = 0.3
-      ctx.stroke()
+      ctx.shadowColor = "#00FFFF";
+      ctx.shadowBlur = 10;
+      ctx.globalAlpha = 0.3;
+      ctx.stroke();
 
       // Reset shadow and alpha
-      ctx.shadowBlur = 0
-      ctx.globalAlpha = 1
-    }
+      ctx.shadowBlur = 0;
+      ctx.globalAlpha = 1;
+    };
 
     const animate = () => {
       // Clear canvas
-      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Occasionally create new lightning (10% chance per frame)
       if (Math.random() < 0.01) {
-        createLightning()
+        createLightning();
       }
 
       // Update and draw particles
       for (let i = 0; i < particles.length; i++) {
-        const p = particles[i]
+        const p = particles[i];
 
-        p.x += p.vx
-        p.y += p.vy
-        p.life--
+        p.x += p.vx;
+        p.y += p.vy;
+        p.life--;
 
         if (p.life <= 0) {
-          particles.splice(i, 1)
-          i--
-          continue
+          particles.splice(i, 1);
+          i--;
+          continue;
         }
 
-        ctx.beginPath()
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2)
-        ctx.fillStyle = p.color
-        ctx.fill()
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
       }
 
-      animationFrameId = requestAnimationFrame(animate)
-    }
+      animationFrameId = requestAnimationFrame(animate);
+    };
 
-    animate()
+    animate();
 
     return () => {
-      window.removeEventListener("resize", resizeCanvas)
-      cancelAnimationFrame(animationFrameId)
-    }
-  }, [])
+      window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
+    };
+  }, []);
 
   const specializations = [
     {
@@ -176,7 +189,7 @@ export function ShadowProtocolSpecializations() {
       description:
         "Manipulate political and economic systems through carefully placed agents and strategic information control.",
     },
-  ]
+  ];
 
   return (
     <motion.section
@@ -193,7 +206,10 @@ export function ShadowProtocolSpecializations() {
           className="relative border border-[#0a3653] rounded-xl p-8 bg-[#0B1B32] overflow-hidden"
         >
           {/* Canvas for lightning animation */}
-          <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none" />
+          <canvas
+            ref={canvasRef}
+            className="absolute inset-0 w-full h-full pointer-events-none"
+          />
 
           <motion.h2
             initial={{ opacity: 0, y: -10 }}
@@ -222,17 +238,20 @@ export function ShadowProtocolSpecializations() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="mt-10 bg-[#09162B] rounded-lg p-6 relative z-10"
           >
-            <h3 className="text-2xl font-semibold text-white mb-4">Joining the Protocol</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4">
+              Joining the Protocol
+            </h3>
             <p className="text-gray-400 leading-relaxed">
-              The Shadow Protocol rarely recruits openly. Instead, promising candidates are observed, tested without
-              their knowledge, and approached only if they demonstrate the necessary skills and discretion. New members
-              undergo extensive training in espionage, information analysis, and covert operations before being assigned
+              The Shadow Protocol rarely recruits openly. Instead, promising
+              candidates are observed, tested without their knowledge, and
+              approached only if they demonstrate the necessary skills and
+              discretion. New members undergo extensive training in espionage,
+              information analysis, and covert operations before being assigned
               to a cell within the organization.
             </p>
           </motion.div>
         </motion.div>
       </div>
     </motion.section>
-  )
+  );
 }
-

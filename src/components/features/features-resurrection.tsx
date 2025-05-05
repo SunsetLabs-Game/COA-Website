@@ -69,8 +69,8 @@ export default function FeaturesResurrection() {
 
           <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4">
             <p className="text-[#00ffff] italic">
-              "Death is not the end, but a doorway to new possibilities. How you die and how you return shapes your
-              destiny in Arcanis."
+              &quot;Death is not the end, but a doorway to new possibilities. How you die and how you return shapes your
+              destiny in Arcanis.&quot;
             </p>
           </div>
         </motion.div>
