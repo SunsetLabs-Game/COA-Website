@@ -2,8 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react"
 import { motion, useInView, useAnimation } from "framer-motion"
-import Image from "next/image"
-import { Play } from "lucide-react"
+import GameplayVideo from "./ui/gameplay-video"
 
 interface GameplayPreviewProps {
   title?: string
@@ -20,7 +19,6 @@ export default function GameplayPreview({
   const isInView = useInView(containerRef, { once: false, amount: 0.3 })
   const controls = useAnimation()
   const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 })
-  const [isVideoPlaying, setIsVideoPlaying] = useState(false)
 
   useEffect(() => {
     if (isInView) {
@@ -38,10 +36,7 @@ export default function GameplayPreview({
     }
   }
 
-  const handlePlayClick = () => {
-    setIsVideoPlaying(true)
-    // In a real implementation, you would play a video here
-  }
+  // Video playback is now handled by the YouTube iframe
 
   // Animation controls are now handled directly in the motion components
 
@@ -111,36 +106,11 @@ export default function GameplayPreview({
         >
           {/* Video container with glitch effect border */}
           <div className="relative rounded-lg overflow-hidden">
-            {/* Glitch border effect */}
-            <div className="absolute inset-0 border-2 border-[#00ffff] rounded-lg glitch-border"></div>
-
-            {/* Video placeholder */}
-            <div className="aspect-video bg-[#0a0a0a] relative overflow-hidden">
-              <Image 
-                src="/images/gameplay.png" // Replace with actual gameplay image
-                alt="Gameplay preview"
-                fill
-                className="object-cover opacity-80"
-                priority
-              />
-
-              {/* Dark overlay for better button visibility */}
-              <div className="absolute inset-0 bg-black/30"></div>
-              
-              {!isVideoPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={handlePlayClick}
-                    className="w-20 h-20 rounded-full bg-[#00aaff]/80 flex items-center justify-center group"
-                  >
-                    <div className="absolute inset-0 rounded-full bg-[#00aaff]/30 animate-ping"></div>
-                    <Play className="w-10 h-10 text-white fill-white ml-1" />
-                  </motion.button>
-                </div>
-              )}
-            </div>
+            {/* Glitch border effect - positioned behind the video */}
+            <div className="absolute inset-0 border-2 border-[#00ffff] rounded-lg glitch-border" style={{ zIndex: 10 }}></div>
+            
+            {/* YouTube video */}
+            <GameplayVideo />
           </div>         
         </motion.div>
       </motion.div>

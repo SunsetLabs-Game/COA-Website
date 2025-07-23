@@ -1,15 +1,13 @@
 "use client"
 
-import { useState } from "react"
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Play } from "lucide-react"
 import GameplayNavigation from "@/components/gameplay/ui/gameplay-navigation"
 import ScrollIndicator from "@/components/gameplay/ui/scroll-indicator"
 import DigitalRainEffect from "@/components/gameplay/ui/digital-rain-effect"
+import GameplayVideo from "../ui/gameplay-video"
 
 export default function GameplayHero() {
-  const [isPlaying, setIsPlaying] = useState(false)
 
   return (
     <section className="relative pt-24 pb-16 overflow-hidden">
@@ -52,31 +50,11 @@ export default function GameplayHero() {
         >
           {/* Video container with glitch effect border */}
           <div className="relative rounded-lg overflow-hidden">
-            {/* Glitch border effect */}
-            <div className="absolute inset-0 border-2 border-[#00ffff] rounded-lg glitch-border"></div>
-
-            {/* Video placeholder */}
-            <div className="aspect-video bg-[#0a0a0a] relative overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=720&width=1280"
-                alt="Gameplay preview"
-                className="w-full h-full object-cover opacity-80"
-              />
-
-              {!isPlaying && (
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <motion.button
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setIsPlaying(true)}
-                    className="w-20 h-20 rounded-full bg-[#00aaff]/80 flex items-center justify-center group"
-                  >
-                    <div className="absolute inset-0 rounded-full bg-[#00aaff]/30 animate-ping"></div>
-                    <Play className="w-10 h-10 text-white fill-white ml-1" />
-                  </motion.button>
-                </div>
-              )}
-            </div>
+            {/* Glitch border effect - positioned behind the video */}
+            <div className="absolute inset-0 border-2 border-[#00ffff] rounded-lg glitch-border" style={{ zIndex: 10 }}></div>
+            
+            {/* YouTube video */}
+            <GameplayVideo />
           </div>
 
           <div className="mt-4 text-center text-gray-400 text-sm">
