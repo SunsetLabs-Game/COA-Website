@@ -117,10 +117,9 @@ export default function FactionsPage() {
       cursorRef.current = { x: e.clientX, y: e.clientY };
     };
 
-    const debouncedMouseMove = debounce((e: MouseEvent) => handleMouseMove(e), 10);
-    document.addEventListener("mousemove", debouncedMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
     return () => {
-      document.removeEventListener("mousemove", debouncedMouseMove);
+      document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
 
@@ -275,11 +274,4 @@ export default function FactionsPage() {
   );
 }
 
-// Utility function for debouncing
-function debounce<T extends (...args: unknown[]) => void>(func: T, wait: number): T {
-  let timeout: NodeJS.Timeout;
-  return ((...args: Parameters<T>) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(...args), wait);
-  }) as T;
-}
+// Removed unused debounce function

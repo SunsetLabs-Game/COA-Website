@@ -61,6 +61,27 @@ export default function CraftingResources() {
         isInView={isInView}
       />
 
+      {/* Display crafting systems */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {craftingSystems.map((system) => (
+          <div key={system.name} className="bg-[#0c1624] border border-[#162a43] rounded-lg p-6 hover:border-[#00aaff]/50 transition-all duration-300">
+            <div className="flex items-center mb-4">
+              <div className="mr-3 p-2 bg-[#162a43] rounded-full">{system.icon}</div>
+              <h3 className="text-lg font-bold text-white">{system.name}</h3>
+            </div>
+            <p className="text-gray-400 mb-4">{system.description}</p>
+            <ul className="space-y-2">
+              {system.features.map((feature) => (
+                <li key={feature} className="text-sm text-gray-300 flex items-start">
+                  <span className="text-[#00aaff] mr-2">•</span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+      
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

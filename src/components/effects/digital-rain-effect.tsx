@@ -6,29 +6,46 @@ import { motion } from "framer-motion"
 export default function DigitalRainEffect() {
   const [isClient, setIsClient] = useState(false)
   const [windowHeight, setWindowHeight] = useState(1000)
-  const [raindrops, setRaindrops] = useState([])
+  interface Raindrop {
+    id: string;
+    left: string;
+    height: string;
+    opacity: number;
+    duration: number;
+    delay: number;
+  }
+
+  const [raindrops, setRaindrops] = useState<Raindrop[]>([])
 
   useEffect(() => {
+    // Only run on client-side
     setIsClient(true)
-    setWindowHeight(window.innerHeight)
-
-    const drops = Array.from({ length: 10 }).map((_, i) => ({
-      id: `rain-${i}`,
-      left: `${Math.random() * 100}%`,
-      height: `${100 + Math.random() * 300}px`,
-      opacity: 0.3 + Math.random() * 0.7,
-      duration: 2 + Math.random() * 3,
-      delay: Math.random() * 2,
-    }))
-
-    setRaindrops(drops)
-
-    const handleResize = () => {
+    
+    // Safe access to window object only on client-side
+    if (typeof window !== 'undefined') {
       setWindowHeight(window.innerHeight)
+      
+      const drops = Array.from({ length: 10 }).map((_, i) => ({
+        id: `rain-${i}`,
+        left: `${Math.random() * 100}%`,
+        height: `${100 + Math.random() * 300}px`,
+        opacity: 0.3 + Math.random() * 0.7,
+        duration: 2 + Math.random() * 3,
+        delay: Math.random() * 2,
+      }))
+      
+      setRaindrops(drops)
     }
 
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    // Only add event listeners on the client side
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setWindowHeight(window.innerHeight)
+      }
+
+      window.addEventListener("resize", handleResize)
+      return () => window.removeEventListener("resize", handleResize)
+    }
   }, [])
 
   if (!isClient) {

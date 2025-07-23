@@ -6,7 +6,7 @@ export default function NeedMoreHelp() {
     <section className="bg-[#1a2235] border border-[#2a3347] rounded-lg p-6 animate-fade-in animation-delay-400">
       <h2 className="text-2xl font-bold mb-4">Need More Help?</h2>
       <p className="text-gray-400 text-sm mb-6">
-        Can't find what you're looking for? Our support team is ready to assist you.
+        Can&apos;t find what you&apos;re looking for? Our support team is ready to assist you.
       </p>
       <div className="space-y-3">
         <Link

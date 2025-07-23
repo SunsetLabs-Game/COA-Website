@@ -90,7 +90,7 @@ export default function ProgressionSystem() {
             </div>
 
             <p className="text-gray-400 mb-6">
-              Progress in Citizen of Arcanis isn't just about gaining levels. Your advancement is measured across
+              Progress in Citizen of Arcanis isn&apos;t just about gaining levels. Your advancement is measured across
               multiple systems:
             </p>
 
@@ -149,8 +149,8 @@ export default function ProgressionSystem() {
 
             <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4">
               <p className="text-[#00ffff] italic text-sm">
-                "The Prestige system gives Citizen of Arcanis incredible replay value, with each cycle offering new
-                challenges and rewards." - GameVerse Review
+                &quot;The Prestige system gives Citizen of Arcanis incredible replay value, with each cycle offering new
+                challenges and rewards.&quot; - GameVerse Review
               </p>
             </div>
           </div>

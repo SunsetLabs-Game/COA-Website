@@ -2,8 +2,18 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
+import { useState, useEffect } from "react"
 
 export default function FeaturesHero() {
+  const [windowHeight, setWindowHeight] = useState(1000)
+  const [isClient, setIsClient] = useState(false)
+  
+  useEffect(() => {
+    setIsClient(true)
+    if (typeof window !== 'undefined') {
+      setWindowHeight(window.innerHeight)
+    }
+  }, [])
   return (
     <section className="relative pt-24 pb-16 overflow-hidden">
       {/* Background image with overlay */}
@@ -30,7 +40,7 @@ export default function FeaturesHero() {
               opacity: 0.3 + Math.random() * 0.7,
             }}
             initial={{ y: -400 }}
-            animate={{ y: window.innerHeight }}
+            animate={{ y: isClient ? windowHeight : 1000 }}
             transition={{
               duration: 2 + Math.random() * 3,
               repeat: Number.POSITIVE_INFINITY,
