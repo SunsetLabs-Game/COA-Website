@@ -16,7 +16,8 @@ export default function WaitlistPage() {
       await addEmailToWaitlist(email);
       toast.success("You have joined the waitlist!");
       setEmail("");
-    } catch (err) {
+    } catch (error) {
+      console.error("Error joining waitlist:", error);
       toast.error("Failed to join waitlist");
     }
   };
