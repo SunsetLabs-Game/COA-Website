@@ -70,7 +70,7 @@ export function ItemGrid({ items, onInspect, onBuy }: ItemGridProps) {
             </button>
           </div>
 
-          <div className="p-4">
+          <div className={`p-4 ${hoveredItem === item.id ? 'bg-gray-800/50' : ''}`}>
             <div className="flex justify-between items-start mb-2">
               <div>
                 <h3 className="font-bold text-white truncate">Quantum Edge Blade</h3>

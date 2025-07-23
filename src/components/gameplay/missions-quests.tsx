@@ -123,7 +123,7 @@ export default function MissionsQuests() {
       >
         <h3 className="text-xl font-bold text-white mb-4">Dynamic Mission System</h3>
         <p className="text-gray-400 mb-6">
-          Missions in Citizen of Arcanis are generated based on your character's actions, faction standing, and world
+          Missions in Citizen of Arcanis are generated based on your character&apos;s actions, faction standing, and world
           events. No two players will experience the same mission flow, creating a truly personalized adventure.
         </p>
 

@@ -141,7 +141,7 @@ export default function SkillSystem() {
       >
         <h3 className="text-xl font-bold text-white mb-4">Skill Synergies</h3>
         <p className="text-gray-400 mb-6">
-          Skills in Citizen of Arcanis aren't isolated abilities - they interact with each other to create powerful
+          Skills in Citizen of Arcanis aren&apos;t isolated abilities - they interact with each other to create powerful
           combinations and emergent gameplay:
         </p>
 
@@ -164,7 +164,7 @@ export default function SkillSystem() {
           <div className="bg-[#162a43]/50 p-4 rounded-lg border border-[#00aaff]/10">
             <h4 className="text-white font-medium mb-2">Team Synergies</h4>
             <p className="text-gray-400 text-sm">
-              Skills can interact with teammates' abilities, creating powerful cooperative combinations in group play.
+              Skills can interact with teammates&apos; abilities, creating powerful cooperative combinations in group play.
             </p>
           </div>
 
