@@ -43,27 +43,7 @@ export default function GameplayPreview({
     // In a real implementation, you would play a video here
   }
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: "easeOut",
-      },
-    },
-  }
+  // Animation controls are now handled directly in the motion components
 
   return (
     <div
@@ -101,28 +81,31 @@ export default function GameplayPreview({
       />
 
       <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate={controls}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isInView ? 1 : 0 }}
+        transition={{ duration: 0.5 }}
         className="w-full max-w-7xl mx-auto px-4 z-10 relative"
       >
         <motion.h2
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
           className="text-center text-3xl md:text-5xl font-bold mb-2 text-[#00ffff]"
         >
           {title}
         </motion.h2>
         <motion.p
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
           className="text-center text-gray-400 mb-12 max-w-2xl mx-auto"
         >
           {description}
         </motion.p>
 
         <motion.div
-          variants={itemVariants}
           initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.95 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="relative max-w-4xl mx-auto group"
         >

@@ -84,8 +84,8 @@ export default function PvpCompetitive() {
 
           <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4">
             <p className="text-[#00ffff] italic">
-              "The PvP in Citizen of Arcanis strikes the perfect balance between accessibility and depth, rewarding both
-              quick reflexes and strategic thinking." - Esports Weekly
+              &quot;The PvP in Citizen of Arcanis strikes the perfect balance between accessibility and depth, rewarding both
+              quick reflexes and strategic thinking.&quot; - Esports Weekly
             </p>
           </div>
         </motion.div>

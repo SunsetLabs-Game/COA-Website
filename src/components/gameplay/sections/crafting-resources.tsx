@@ -129,8 +129,8 @@ export default function CraftingResources() {
 
           <div className="bg-[#162a43]/50 border border-[#00aaff]/30 rounded-lg p-4">
             <p className="text-[#00ffff] italic">
-              "The crafting system in Citizen of Arcanis offers unprecedented depth, allowing players to create truly
-              unique items that reflect their personal style and strategy." - Tech Gaming Review
+              &quot;The crafting system in Citizen of Arcanis offers unprecedented depth, allowing players to create truly
+              unique items that reflect their personal style and strategy.&quot; - Tech Gaming Review
             </p>
           </div>
         </motion.div>

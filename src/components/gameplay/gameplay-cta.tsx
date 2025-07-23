@@ -10,7 +10,17 @@ export default function GameplayCTA() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.7 })
   const [isClient, setIsClient] = useState(false)
-  const [particles, setParticles] = useState([])
+  interface Particle {
+    id: number;
+    width: number;
+    height: number;
+    left: number;
+    top: number;
+    duration: number;
+    delay: number;
+  }
+
+  const [particles, setParticles] = useState<Particle[]>([])
 
   useEffect(() => {
     setIsClient(true)
