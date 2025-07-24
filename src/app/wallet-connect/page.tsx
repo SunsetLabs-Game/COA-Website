@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { useStarknetWallet } from "@/hooks/use-starknet-wallet";
 import { useEffect } from "react";
+import ParticleBackground from "@/components/effects/particle-background";
 
 export default function WalletConnect() {
   const {
@@ -22,6 +23,7 @@ export default function WalletConnect() {
 
   return (
     <div className="min-h-screen flex flex-col relative pt-24">
+      <ParticleBackground />
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-white mb-8">StarkNet Wallet Connection</h1>

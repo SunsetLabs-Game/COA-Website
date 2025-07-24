@@ -6,6 +6,7 @@ import SearchBar from "@/components/common/search-bar";
 import { Card } from "@/components/cards/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Pagination } from "@/components/common/pagination";
+import ParticleBackground from "@/components/effects/particle-background";
 
 interface Comment {
   id: number;
@@ -76,7 +77,8 @@ export default function CommunityPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 relative">
+      <ParticleBackground />
       {/* NavMenu */}
       <header className="bg-white shadow">
         <NavMenu

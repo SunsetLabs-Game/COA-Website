@@ -6,10 +6,12 @@ import PopularArticles from "@/components/help-center/popular-articles"
 import RecentUpdates from "@/components/help-center/recent-updates"
 import NeedMoreHelp from "@/components/help-center/need-more-help"
 import CommunityHelp from "@/components/help-center/community-help"
+import ParticleBackground from "@/components/effects/particle-background"
 
 export default function HelpCenter() {
   return (
-    <div className="min-h-screen  text-white">
+    <div className="min-h-screen text-white relative">
+      <ParticleBackground />
       <Navbar />
 
       <main className="mt-[4rem] container mx-auto px-4 py-8 max-w-7xl">

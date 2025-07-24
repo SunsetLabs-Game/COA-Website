@@ -1,5 +1,6 @@
 "use client";
 import ExpandableFAQ from "@/components/ui/faq/expandable-faq";
+import ParticleBackground from "@/components/effects/particle-background";
 import {
   CircleHelp,
   Zap,
@@ -27,7 +28,8 @@ export default function FAQSection() {
   const [selected, setSelected] = useState("Community");
 
   return (
-    <div className="pt-24 px-4 sm:px-6 lg:px-8 pb-8">
+    <div className="pt-24 px-4 sm:px-6 lg:px-8 pb-8 relative">
+      <ParticleBackground />
       <div className="pt-8 sm:pt-16">
         <h1 className="text-center text-2xl sm:text-3xl lg:text-[44px] font-bold">
           Frequently Asked Questions
